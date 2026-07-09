@@ -172,20 +172,24 @@ export default function RetailLifestylePage() {
               </Link>
             </div>
 
-            {/* Supported Brands */}
-            <div className="pt-6 border-t border-white/5 flex flex-wrap items-center gap-4 text-muted/60 text-xs font-semibold uppercase tracking-widest font-inter">
-              <span className="mr-2">This Service Supports:</span>
-              <span className="text-white opacity-80 hover:opacity-100 transition-opacity">XBAEX</span>
-              <span className="text-white/40 font-normal">|</span>
-              <span className="text-white opacity-80 hover:opacity-100 transition-opacity">RUDRA</span>
-              <span className="text-white/40 font-normal">|</span>
-              <span className="text-white opacity-80 hover:opacity-100 transition-opacity">DOTFEELZ</span>
-              <span className="text-white/40 font-normal">|</span>
-              <span className="text-white opacity-80 hover:opacity-100 transition-opacity">XOXO</span>
-              <span className="text-white/40 font-normal">|</span>
-              <span className="text-white opacity-80 hover:opacity-100 transition-opacity">NOVELIA</span>
-              <span className="text-white/40 font-normal">|</span>
-              <span className="text-white opacity-80 hover:opacity-100 transition-opacity">THRIFTORA</span>
+            {/* Service Supports */}
+            <div className="pt-6 border-t border-white/5 flex flex-wrap items-center gap-3">
+              <span className="text-xs font-semibold text-muted/60 uppercase tracking-widest font-inter">This Service Supports</span>
+              <div className="flex flex-wrap items-center gap-3">
+                {[
+                  { name: 'XBAEX', logo: '/1000156535.png' },
+                  { name: 'RUDRA', logo: '/rudracollections.jpg' },
+                  { name: 'DOTFEELZ', logo: '/dotfeelz.jpeg' },
+                  { name: 'XOXO RENTALS', logo: '/xoxorentals.jpg' },
+                  { name: 'NOVELIA', logo: '/novelia.jpg' },
+                  { name: 'THRIFTORA', logo: '/th.png' }
+                ].map((s, idx) => (
+                  <div key={idx} className="flex items-center gap-2 px-3 py-1 rounded-xl bg-white/5 border border-white/10">
+                    <Image src={s.logo} alt={s.name} width={16} height={16} className="object-contain rounded-full" />
+                    <span className="text-[10px] font-extrabold tracking-wider font-montserrat text-white">{s.name}</span>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
 
@@ -243,15 +247,7 @@ export default function RetailLifestylePage() {
                   <h3 className="font-montserrat font-bold text-white text-base leading-tight group-hover:text-[#ff6b00] transition-colors">{service.title}</h3>
                   <p className="font-inter text-muted text-xs leading-relaxed">{service.desc}</p>
                 </div>
-                
-                <div className="pt-5 mt-auto">
-                  <Link 
-                    href="/contact" 
-                    className="inline-flex items-center gap-1 text-[11px] font-bold text-[#ff6b00] hover:text-white uppercase tracking-wider font-inter group-hover:gap-2 transition-all"
-                  >
-                    Learn More <ChevronRight className="w-3.5 h-3.5" />
-                  </Link>
-                </div>
+
               </motion.div>
             );
           })}

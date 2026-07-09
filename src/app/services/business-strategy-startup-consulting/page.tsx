@@ -171,20 +171,19 @@ export default function StartupConsultingPage() {
               </Link>
             </div>
 
-            {/* Supported Brands */}
-            <div className="pt-6 border-t border-white/5 flex flex-wrap items-center gap-6">
-              <span className="text-xs font-semibold text-muted/60 uppercase tracking-widest font-inter">This Service Supports:</span>
-              
-              {/* InfinityIdeasDCT */}
-              <div className="flex items-center gap-1.5 opacity-80 hover:opacity-100 transition-opacity">
-                <Compass className="w-4 h-4 text-[#ff5c00]" />
-                <span className="font-montserrat font-extrabold text-sm tracking-wider text-white">InfinityIdeasDCT</span>
-              </div>
-
-              {/* SomethingToBeDone */}
-              <div className="flex items-center gap-1.5 opacity-80 hover:opacity-100 transition-opacity">
-                <Target className="w-4 h-4 text-[#ff5c00]" />
-                <span className="font-montserrat font-extrabold text-sm tracking-wider text-white">SomethingToBeDone</span>
+            {/* Service Supports */}
+            <div className="pt-6 border-t border-white/5 flex flex-wrap items-center gap-3">
+              <span className="text-xs font-semibold text-muted/60 uppercase tracking-widest font-inter">This Service Supports</span>
+              <div className="flex flex-wrap items-center gap-3">
+                {[
+                  { name: 'SOMETHINGTOBEDONE', logo: '/1000156537.png' },
+                  { name: 'EUREKATOBEAS', logo: '/1000156536.png' }
+                ].map((s, idx) => (
+                  <div key={idx} className="flex items-center gap-2 px-3 py-1 rounded-xl bg-white/5 border border-white/10">
+                    <Image src={s.logo} alt={s.name} width={16} height={16} className="object-contain rounded-full" />
+                    <span className="text-[10px] font-extrabold tracking-wider font-montserrat text-white">{s.name}</span>
+                  </div>
+                ))}
               </div>
             </div>
           </div>
@@ -243,15 +242,7 @@ export default function StartupConsultingPage() {
                   <h3 className="font-montserrat font-bold text-white text-base leading-tight group-hover:text-[#ff6b00] transition-colors">{service.title}</h3>
                   <p className="font-inter text-muted text-xs leading-relaxed">{service.desc}</p>
                 </div>
-                
-                <div className="pt-5 mt-auto">
-                  <Link 
-                    href="/contact" 
-                    className="inline-flex items-center gap-1 text-[11px] font-bold text-[#ff6b00] hover:text-white uppercase tracking-wider font-inter group-hover:gap-2 transition-all"
-                  >
-                    Learn More <ChevronRight className="w-3.5 h-3.5" />
-                  </Link>
-                </div>
+
               </motion.div>
             );
           })}

@@ -191,14 +191,14 @@ export default function EcommerceDevelopmentPage() {
 
       {/* ─── Hero Section ──────────────────────────────────────────────────────── */}
       <section className="relative pt-8 pb-16 px-6 sm:px-12 max-w-[1440px] mx-auto z-10">
-        <div className="grid lg:grid-cols-12 gap-12 items-center">
+        <div className="flex flex-col items-center justify-center text-center">
           
           {/* Hero Left Content */}
           <motion.div 
-            initial={{ opacity: 0, x: -30 }}
-            animate={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="lg:col-span-7 space-y-6 sm:space-y-8"
+            className="max-w-3xl mx-auto space-y-6 sm:space-y-8 flex flex-col items-center"
           >
             <div className="inline-block px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary font-bold text-[10px] sm:text-xs uppercase tracking-widest font-montserrat">
               E-Commerce & Quick Commerce Solutions
@@ -209,12 +209,12 @@ export default function EcommerceDevelopmentPage() {
               <span className="text-[#ff5c00]">Sell Everywhere.</span>
             </h1>
             
-            <p className="text-[#bab8b7] text-sm sm:text-base leading-relaxed max-w-xl font-inter">
+            <p className="text-[#bab8b7] text-sm sm:text-base leading-relaxed max-w-xl font-inter text-center">
               We build and scale online commerce businesses by providing end-to-end solutions, from launching online stores to enabling fast product delivery.
             </p>
 
             {/* Tags Row */}
-            <div className="flex flex-wrap gap-2.5 pt-2">
+            <div className="flex flex-wrap justify-center gap-2.5 pt-2">
               {[
                 { label: 'Faster Launch', icon: Clock },
                 { label: 'Higher Sales', icon: TrendingUp },
@@ -231,7 +231,7 @@ export default function EcommerceDevelopmentPage() {
               })}
             </div>
             
-            <div className="flex flex-wrap gap-4 pt-2">
+            <div className="flex flex-wrap justify-center gap-4 pt-2">
               <Link 
                 href="/book-consultation" 
                 className="px-6 py-3.5 bg-primary hover:bg-[#e05200] text-white font-bold rounded-xl text-sm transition-all orange-glow flex items-center gap-2 min-h-[44px]"
@@ -247,13 +247,13 @@ export default function EcommerceDevelopmentPage() {
             </div>
 
             {/* Service Supports */}
-            <div className="flex flex-wrap items-center gap-3 pt-6 border-t border-white/10">
+            <div className="flex flex-wrap items-center justify-center gap-3 pt-6 border-t border-white/10 w-full">
               <span className="text-xs text-gray-500 uppercase tracking-widest font-bold font-inter">This Service Supports</span>
-              <div className="flex items-center gap-4">
+              <div className="flex flex-wrap items-center justify-center gap-4">
                 {[
-                  { name: 'WHIZZINESS', logo: '/favicon.ico' },
+                  { name: 'WHIZZINESS', logo: '/1000156533.png' },
                   { name: 'DROPSHIPPING', logo: '/dropshipping.jpg' },
-                  { name: 'THRIFTORA', logo: '/favicon.ico' }
+                  { name: 'THRIFTORA', logo: '/th.png' }
                 ].map((s, idx) => (
                   <div key={idx} className="flex items-center gap-2 px-3 py-1 rounded-xl bg-white/5 border border-white/10">
                     <Image src={s.logo} alt={s.name} width={16} height={16} className="object-contain rounded-full" />
@@ -262,49 +262,6 @@ export default function EcommerceDevelopmentPage() {
                 ))}
               </div>
             </div>
-          </motion.div>
-
-          {/* Hero Right Mockup Graphics */}
-          <motion.div 
-            initial={{ opacity: 0, x: 30 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6, delay: 0.15 }}
-            className="lg:col-span-5 relative flex items-center justify-center min-h-[500px]"
-          >
-            {/* Main Phone Image Mockup */}
-            <div className="relative w-[340px] sm:w-[380px] h-[340px] sm:h-[380px] z-10 flex items-center justify-center rounded-3xl overflow-hidden shadow-2xl">
-              <Image 
-                src="/ecommerce_hero.jpg" 
-                alt="E-Commerce phone screen illustration with shopping cart" 
-                fill
-                className="object-cover rounded-3xl"
-                priority
-              />
-            </div>
-
-
-
-          </motion.div>
-        </div>
-
-        {/* Bottom Stat Bar (Home style - translucent black overlay) */}
-        <div className="mt-16 w-full flex justify-center animate-fade-in">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.25 }}
-            className="w-full max-w-4xl p-6 sm:p-8 rounded-[1.5rem] border border-white/10 bg-black/40 backdrop-blur-md grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 relative z-20 shadow-[0_8px_32px_0_rgba(0,0,0,0.5)]"
-          >
-            {stats.map((s, idx) => {
-              const StatIcon = s.icon;
-              return (
-                <div key={idx} className="flex flex-col items-center text-center space-y-2">
-                  <StatIcon className="w-8 h-8 text-[#ff5c00] mb-1" />
-                  <span className="font-montserrat font-extrabold text-[#ffffff] text-sm sm:text-base leading-tight">{s.val}</span>
-                  <span className="text-[10px] sm:text-xs text-gray-400 font-bold uppercase tracking-wider font-inter">{s.label}</span>
-                </div>
-              );
-            })}
           </motion.div>
         </div>
       </section>
@@ -502,70 +459,6 @@ export default function EcommerceDevelopmentPage() {
         </div>
       </section>
 
-      {/* ─── Pricing Tiers ─────────────────────────────────────────────────────── */}
-      <section className="py-16 sm:py-24 max-w-7xl mx-auto px-4 sm:px-6 relative z-10 border-t border-white/5">
-        <motion.div {...fadeInUp} className="text-center max-w-3xl mx-auto mb-16 space-y-4">
-          <span className="text-primary font-bold text-xs uppercase tracking-widest block font-montserrat">Pricing Packages</span>
-          <h2 className="font-montserrat font-extrabold text-3xl sm:text-4xl text-white">Investment Levels</h2>
-          <p className="text-muted text-sm sm:text-base leading-relaxed font-inter">
-            Transparent investment configurations matching your operational catalog size and transactional flow volume.
-          </p>
-        </motion.div>
-
-        <div className="grid md:grid-cols-3 gap-8">
-          {pricingTiers.map((tier, idx) => (
-            <motion.div
-              key={tier.name}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: idx * 0.1 }}
-              className={`bg-white/5 p-8 rounded-3xl border flex flex-col justify-between relative hover:scale-[1.02] transition-all duration-300 ${
-                tier.popular ? 'border-primary/45 shadow-[0_0_30px_rgba(255,92,0,0.15)] bg-primary/5' : 'border-white/5'
-              }`}
-            >
-              {tier.popular && (
-                <span className="absolute top-4 right-4 bg-primary text-white text-[10px] font-extrabold uppercase px-2.5 py-1 rounded-full font-montserrat">
-                  Most Popular
-                </span>
-              )}
-              <div className="space-y-6">
-                <div>
-                  <h3 className="font-montserrat font-extrabold text-lg sm:text-xl text-white">{tier.name}</h3>
-                  <p className="text-xs text-muted mt-1 min-h-[40px] font-inter">{tier.desc}</p>
-                </div>
-
-                <div className="pt-2">
-                  <span className="font-montserrat font-extrabold text-3xl sm:text-4xl text-white">{tier.price}</span>
-                  <span className="text-xs text-muted ml-1 font-inter">Setup Cost</span>
-                </div>
-
-                <ul className="space-y-3 pt-4 border-t border-white/5">
-                  {tier.features.map(f => (
-                    <li key={f} className="text-xs text-[#bab8b7] flex items-start gap-2 font-inter">
-                      <Check className="w-4 h-4 text-primary shrink-0 mt-0.5" />
-                      <span>{f}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              <div className="pt-8">
-                <Link 
-                  href="/book-consultation"
-                  className={`w-full py-3 rounded-xl font-bold font-inter text-xs text-center flex items-center justify-center min-h-[44px] transition-all ${
-                    tier.popular 
-                      ? 'bg-primary hover:bg-[#e05200] text-white orange-glow' 
-                      : 'border border-white/15 hover:bg-white/5 text-white'
-                  }`}
-                >
-                  {tier.cta}
-                </Link>
-              </div>
-            </motion.div>
-          ))}
-        </div>
-      </section>
 
       {/* ─── Frequently Asked Questions ────────────────────────────────────────── */}
       <section className="py-16 sm:py-24 bg-[#0a0a0c] border-t border-white/5 relative z-10">
@@ -655,41 +548,7 @@ export default function EcommerceDevelopmentPage() {
         </div>
       </section>
 
-      {/* ─── Final Call to Action (Dark Card with Laptop graphics mockup) ─────── */}
-      <section className="py-16 sm:py-24 max-w-7xl mx-auto px-6 relative z-10 border-t border-white/5">
-        <motion.div
-          initial={{ opacity: 0, scale: 0.96 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="bg-gradient-to-r from-black via-[#08080a] to-[#120b05] p-10 sm:p-16 rounded-[2.5rem] border border-white/5 space-y-6 relative overflow-hidden flex flex-col md:flex-row items-center justify-between gap-8"
-        >
-          <div className="space-y-4 max-w-xl text-left">
-            <span className="text-[#ff5c00] font-bold text-xs uppercase tracking-widest font-montserrat block">Ready To Launch Your Online Business?</span>
-            <h2 className="font-montserrat font-extrabold text-3xl sm:text-4xl md:text-5xl text-white leading-tight">
-              Let's Build Your E-Commerce<br />Success Story
-            </h2>
-            <p className="text-gray-400 text-sm leading-relaxed font-inter font-inter">
-              Partner with OCTADECENT to create powerful e-commerce platforms that generate sales, optimize orders, and grow your brand.
-            </p>
-          </div>
-
-          <div className="flex flex-col gap-4 w-full md:w-auto shrink-0 z-10">
-            <Link 
-              href="/contact" 
-              className="px-8 py-4 bg-[#ff5c00] hover:bg-[#e05200] text-white font-bold rounded-2xl text-sm transition-all flex items-center justify-center gap-2 min-h-[44px] w-full shadow-lg shadow-[#ff5c00]/20 font-inter"
-            >
-              Get Free Consultation <ArrowRight className="w-4 h-4" />
-            </Link>
-            <Link 
-              href="/services" 
-              className="px-8 py-4 border border-white/10 hover:bg-white/5 text-white font-bold rounded-2xl text-sm transition-all flex items-center justify-center gap-2 min-h-[44px] w-full font-inter"
-            >
-              View All Services
-            </Link>
-          </div>
-        </motion.div>
-      </section>
+      
 
     </div>
   );

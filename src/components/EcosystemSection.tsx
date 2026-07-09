@@ -307,7 +307,7 @@ export default function EcosystemSection() {
   return (
     <section
       ref={sectionRef}
-      className="relative py-20 sm:py-28 md:py-36 border-t border-white/5 overflow-hidden"
+      className="relative pt-10 pb-20 sm:pt-14 sm:pb-28 md:pt-16 md:pb-36 border-t border-white/5 overflow-hidden"
       style={{ background: 'radial-gradient(ellipse 80% 50% at 50% 0%, rgba(255,107,0,0.06) 0%, transparent 70%), #050816' }}
     >
       {/* Animated grid */}

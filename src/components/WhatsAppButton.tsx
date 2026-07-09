@@ -3,6 +3,11 @@
 import { useState, useEffect, useCallback } from 'react';
 import { usePathname } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
+import dynamic from 'next/dynamic';
+
+const ScrollToTop = dynamic(() => import('./ScrollToTop'), {
+  ssr: false,
+});
 
 // ─── Config ───────────────────────────────────────────────────────────────────
 const WA_NUMBER = '919398820561';
@@ -70,53 +75,56 @@ export default function WhatsAppButton() {
   }, [pathname]);
 
   return (
-    <div className="fixed bottom-6 right-5 z-[9999] flex flex-col items-end gap-2 pointer-events-auto">
+    <>
+      <ScrollToTop />
+      <div className="fixed bottom-6 right-5 z-[9999] flex flex-col items-end gap-2 pointer-events-auto">
 
-      {/* Tooltip */}
-      <AnimatePresence>
-        {showTooltip && (
-          <motion.div
-            key="tip"
-            initial={{ opacity: 0, y: 4, scale: 0.95 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: 4, scale: 0.95 }}
-            transition={{ duration: 0.15 }}
-            className="relative bg-[#0e0e0e] border border-white/10 text-white text-[11px] font-semibold font-inter px-3 py-1.5 rounded-xl shadow-xl whitespace-nowrap pointer-events-none"
+        {/* Tooltip */}
+        <AnimatePresence>
+          {showTooltip && (
+            <motion.div
+              key="tip"
+              initial={{ opacity: 0, y: 4, scale: 0.95 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, y: 4, scale: 0.95 }}
+              transition={{ duration: 0.15 }}
+              className="relative bg-[#0e0e0e] border border-white/10 text-white text-[11px] font-semibold font-inter px-3 py-1.5 rounded-xl shadow-xl whitespace-nowrap pointer-events-none"
+            >
+              💬 Chat with OCTADECENT
+              <span className="absolute -bottom-[5px] right-[18px] w-2.5 h-2.5 bg-[#0e0e0e] border-r border-b border-white/10 rotate-45" />
+            </motion.div>
+          )}
+        </AnimatePresence>
+
+        {/* Button */}
+        <div className="relative">
+          {/* Pulse rings — orange */}
+          {pulse && (
+            <>
+              <span className="absolute inset-0 rounded-full bg-[#ff6b00] animate-ping opacity-30 pointer-events-none" />
+              <span className="absolute -inset-2 rounded-full bg-[#ff6b00] animate-ping opacity-15 pointer-events-none" style={{ animationDelay: '0.12s' }} />
+            </>
+          )}
+
+          <motion.button
+            onClick={handleClick}
+            onMouseEnter={() => setShowTooltip(true)}
+            onMouseLeave={() => setShowTooltip(false)}
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.93 }}
+            aria-label="Chat with OCTADECENT on WhatsApp"
+            className="relative w-14 h-14 rounded-full flex items-center justify-center cursor-pointer focus:outline-none focus-visible:ring-4 focus-visible:ring-[#ff6b00]/50 transition-shadow duration-300"
+            style={{
+              background: '#ff6b00',
+              boxShadow: '0 4px 20px rgba(255,107,0,0.45)',
+            }}
+            onMouseOver={e => { (e.currentTarget as HTMLElement).style.boxShadow = '0 6px 32px rgba(255,107,0,0.70)'; }}
+            onMouseOut={e => { (e.currentTarget as HTMLElement).style.boxShadow = '0 4px 20px rgba(255,107,0,0.45)'; }}
           >
-            💬 Chat with OCTADECENT
-            <span className="absolute -bottom-[5px] right-[18px] w-2.5 h-2.5 bg-[#0e0e0e] border-r border-b border-white/10 rotate-45" />
-          </motion.div>
-        )}
-      </AnimatePresence>
-
-      {/* Button */}
-      <div className="relative">
-        {/* Pulse rings — orange */}
-        {pulse && (
-          <>
-            <span className="absolute inset-0 rounded-full bg-[#ff6b00] animate-ping opacity-30 pointer-events-none" />
-            <span className="absolute -inset-2 rounded-full bg-[#ff6b00] animate-ping opacity-15 pointer-events-none" style={{ animationDelay: '0.12s' }} />
-          </>
-        )}
-
-        <motion.button
-          onClick={handleClick}
-          onMouseEnter={() => setShowTooltip(true)}
-          onMouseLeave={() => setShowTooltip(false)}
-          whileHover={{ scale: 1.1 }}
-          whileTap={{ scale: 0.93 }}
-          aria-label="Chat with OCTADECENT on WhatsApp"
-          className="relative w-14 h-14 rounded-full flex items-center justify-center cursor-pointer focus:outline-none focus-visible:ring-4 focus-visible:ring-[#ff6b00]/50 transition-shadow duration-300"
-          style={{
-            background: '#ff6b00',
-            boxShadow: '0 4px 20px rgba(255,107,0,0.45)',
-          }}
-          onMouseOver={e => { (e.currentTarget as HTMLElement).style.boxShadow = '0 6px 32px rgba(255,107,0,0.70)'; }}
-          onMouseOut={e => { (e.currentTarget as HTMLElement).style.boxShadow = '0 4px 20px rgba(255,107,0,0.45)'; }}
-        >
-          <WaIcon />
-        </motion.button>
+            <WaIcon />
+          </motion.button>
+        </div>
       </div>
-    </div>
+    </>
   );
 }

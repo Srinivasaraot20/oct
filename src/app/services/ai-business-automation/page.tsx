@@ -30,14 +30,7 @@ const itemVariants = {
 };
 
 export default function AISolutionsPage() {
-  const metrics = [
-    { value: '350+', label: 'Projects Automated', desc: 'Across global industries', icon: Zap },
-    { value: '85%', label: 'Process Efficiency', desc: 'Operational improvement', icon: Settings },
-    { value: '45%', label: 'Average Time Saved', desc: 'Saved per workflow', icon: Workflow },
-    { value: '60%', label: 'Cost Reduction', desc: 'In overall operational overhead', icon: Cpu },
-    { value: '98%', label: 'Client Satisfaction', desc: 'Based on post-launch audits', icon: Users },
-    { value: '24/7', label: 'Automation Support', desc: 'Uninterrupted system monitoring', icon: Network }
-  ];
+
 
   const services = [
     {
@@ -193,16 +186,19 @@ export default function AISolutionsPage() {
               </Link>
             </div>
 
-            {/* Vyomora Logo Integration */}
-            <div className="pt-6 border-t border-white/5 flex items-center gap-4">
+            {/* Service Supports */}
+            <div className="pt-6 border-t border-white/5 flex flex-wrap items-center gap-3">
               <span className="text-xs font-semibold text-muted/60 uppercase tracking-widest font-inter">This Service Supports</span>
-              <div className="relative h-7 w-28 opacity-80 hover:opacity-100 transition-opacity">
-                <Image
-                  src="/vyomora.png"
-                  alt="Vyomora Logo"
-                  fill
-                  className="object-contain object-left"
-                />
+              <div className="flex flex-wrap items-center gap-3">
+                {[
+                  { name: 'REVERTEDAI', logo: '/1000156538.png' },
+                  { name: 'OCTASVERSE', logo: '/octas_freelancing.png' }
+                ].map((s, idx) => (
+                  <div key={idx} className="flex items-center gap-2 px-3 py-1 rounded-xl bg-white/5 border border-white/10">
+                    <Image src={s.logo} alt={s.name} width={16} height={16} className="object-contain rounded-full" />
+                    <span className="text-[10px] font-extrabold tracking-wider font-montserrat text-white">{s.name}</span>
+                  </div>
+                ))}
               </div>
             </div>
           </div>
@@ -301,24 +297,6 @@ export default function AISolutionsPage() {
         </div>
       </section>
 
-      {/* ─── Metrics Section ─── */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 mt-20 sm:mt-28 relative z-10">
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 border border-white/5 rounded-2xl bg-[#090909]/60 backdrop-blur-md overflow-hidden divide-x divide-y divide-white/5 divide-solid">
-          {metrics.map((metric, idx) => {
-            const Icon = metric.icon;
-            return (
-              <div key={idx} className="p-6 text-center space-y-2 hover:bg-white/[0.01] transition-colors group flex flex-col justify-center">
-                <div className="mx-auto w-9 h-9 rounded-full border border-white/10 flex items-center justify-center text-[#ff6b00] bg-[#ff6b00]/5 group-hover:border-[#ff6b00]/55 transition-colors">
-                  <Icon className="w-4 h-4" />
-                </div>
-                <h3 className="font-montserrat font-extrabold text-white text-3xl sm:text-4xl group-hover:text-[#ff5c00] transition-colors">{metric.value}</h3>
-                <h4 className="font-montserrat font-bold text-xs text-white/90">{metric.label}</h4>
-                <p className="font-inter text-[11px] text-muted leading-tight">{metric.desc}</p>
-              </div>
-            );
-          })}
-        </div>
-      </section>
 
       {/* ─── WHAT WE DO: AI & Business Automation Services ─── */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 mt-24 sm:mt-32 relative z-10">

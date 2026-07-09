@@ -80,15 +80,7 @@ export default function Footer() {
  
 
  
-          {/* Resources Column */}
-          <div className="col-span-1">
-            <h4 className="font-montserrat font-bold text-xs uppercase tracking-wider text-white mb-4 sm:mb-6">Resources</h4>
-            <ul className="space-y-3 sm:space-y-4 font-inter text-sm text-[#9a9898]">
-              <li><Link href="/privacy-policy" className="hover:text-[#ff6b00] transition-colors inline-block relative after:content-[''] after:absolute after:w-0 after:h-px after:bottom-0 after:left-0 after:bg-[#ff6b00] hover:after:w-full after:transition-all after:duration-300">Privacy Policy</Link></li>
-              <li><Link href="/terms" className="hover:text-[#ff6b00] transition-colors inline-block relative after:content-[''] after:absolute after:w-0 after:h-px after:bottom-0 after:left-0 after:bg-[#ff6b00] hover:after:w-full after:transition-all after:duration-300">Terms & Conditions</Link></li>
-              <li><Link href="/book-consultation" className="hover:text-[#ff6b00] transition-colors inline-block relative after:content-[''] after:absolute after:w-0 after:h-px after:bottom-0 after:left-0 after:bg-[#ff6b00] hover:after:w-full after:transition-all after:duration-300">Book Consultation</Link></li>
-            </ul>
-          </div>
+          
 
           {/* Company Column */}
           <div className="col-span-1">

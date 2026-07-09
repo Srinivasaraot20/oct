@@ -31,7 +31,6 @@ interface DetailedService {
 
 export default function ServicesPage() {
   const [activeFaq, setActiveFaq] = useState<number | null>(null);
-  const [selectedServiceIndex, setSelectedServiceIndex] = useState<number>(0);
 
   const stats = [
     { label: 'Business Ventures', val: '18+', icon: Building2 },
@@ -227,8 +226,7 @@ export default function ServicesPage() {
     ]
   };
 
-  const selectedService = coreServices[selectedServiceIndex];
-  const SelectedIcon = selectedService.icon;
+
 
   return (
     <div className="bg-[#050505] min-h-screen text-white font-inter overflow-hidden relative">
@@ -311,28 +309,6 @@ export default function ServicesPage() {
           </motion.div>
         </div>
 
-        {/* Bottom Stat Bar (White background card) */}
-        <div className="mt-16 w-full flex justify-center">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.25 }}
-            className="w-full max-w-5xl p-6 sm:p-8 rounded-[1.5rem] bg-white text-black grid grid-cols-2 md:grid-cols-5 gap-6 sm:gap-8 shadow-xl border border-gray-100 relative z-20"
-          >
-            {stats.map((s, idx) => {
-              const StatIcon = s.icon;
-              return (
-                <div key={idx} className="flex flex-col items-center text-center space-y-1">
-                  <div className="w-10 h-10 rounded-xl bg-[#ff5c00]/10 flex items-center justify-center text-[#ff5c00] mb-1">
-                    <StatIcon className="w-5 h-5" />
-                  </div>
-                  <span className="font-montserrat font-extrabold text-lg sm:text-xl text-black">{s.val}</span>
-                  <span className="text-[10px] sm:text-xs text-gray-500 font-bold uppercase tracking-wider font-inter">{s.label}</span>
-                </div>
-              );
-            })}
-          </motion.div>
-        </div>
       </section>
 
       {/* ─── 2. Interactive Services Showcase (Brand Redesign) ─────────────────── */}
@@ -346,142 +322,74 @@ export default function ServicesPage() {
             </p>
           </motion.div>
 
-          <div className="grid lg:grid-cols-12 gap-8 items-stretch">
-            {/* Sidebar list of services */}
-            <div className="lg:col-span-4 flex flex-col gap-2 max-h-[600px] overflow-y-auto pr-2 no-scrollbar border-r border-white/5">
-              {coreServices.map((service, idx) => {
-                const Icon = service.icon;
-                const isSelected = selectedServiceIndex === idx;
-                return (
-                  <button
-                    key={service.num}
-                    onClick={() => setSelectedServiceIndex(idx)}
-                    className={`w-full text-left flex items-center gap-4 p-4 rounded-xl transition-all duration-300 border cursor-pointer ${
-                      isSelected 
-                        ? 'bg-[#ff5c00]/10 border-[#ff5c00]/40 text-[#ff5c00] shadow-[0_0_24px_rgba(255,92,0,0.1)]' 
-                        : 'bg-white/5 border-transparent text-gray-400 hover:text-white hover:bg-white/10'
-                    }`}
-                  >
-                    <div className={`p-2.5 rounded-lg shrink-0 transition-colors ${
-                      isSelected ? 'bg-[#ff5c00] text-white' : 'bg-white/5 text-gray-400'
-                    }`}>
-                      <Icon className="w-5 h-5" />
-                    </div>
-                    <div className="min-w-0 flex-1">
-                      <div className="text-[10px] font-bold font-montserrat tracking-widest text-[#ff5c00] uppercase mb-0.5">
-                        Category {service.num}
-                      </div>
-                      <h4 className="font-montserrat font-bold text-sm leading-snug whitespace-nowrap overflow-hidden text-ellipsis">
-                        {service.title}
-                      </h4>
-                    </div>
-                    <ChevronRight className={`w-4 h-4 shrink-0 transition-transform ${isSelected ? 'translate-x-1' : ''}`} />
-                  </button>
-                );
-              })}
-            </div>
-
-            {/* Active Service Details Showcase Panel */}
-            <div className="lg:col-span-8 bg-[#111827]/40 backdrop-blur-xl border border-white/10 p-6 sm:p-10 rounded-2xl flex flex-col justify-between min-h-[500px]">
-              <AnimatePresence mode="wait">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+            {coreServices.map((service, idx) => {
+              const Icon = service.icon;
+              return (
                 <motion.div
-                  key={selectedServiceIndex}
-                  initial={{ opacity: 0, y: 15 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -15 }}
-                  transition={{ duration: 0.3 }}
-                  className="space-y-8"
+                  key={service.num}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4, delay: idx * 0.05 }}
+                  className="bg-white/5 border border-white/5 rounded-3xl p-6 sm:p-8 flex flex-col justify-between hover:border-primary/30 transition-all duration-500 group relative overflow-hidden hover:shadow-[0_0_40px_rgba(255,92,0,0.1)] min-h-[360px]"
                 >
-                  {/* Top Heading Block */}
-                  <div className="flex items-start justify-between gap-4">
-                    <div className="space-y-3">
-                      <div className="flex items-center gap-2 text-[#ff5c00]">
-                        <div className="p-3 bg-[#ff5c00]/10 rounded-xl">
-                          <SelectedIcon className="w-6 h-6" />
-                        </div>
-                        <span className="font-montserrat font-extrabold text-sm uppercase tracking-widest">
-                          Service {selectedService.num}
-                        </span>
+                  {/* Glowing background gradient on hover */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-[#ff5c00]/0 via-transparent to-[#ff5c00]/5 group-hover:from-[#ff5c00]/5 transition-all duration-500 pointer-events-none" />
+                  
+                  <div className="space-y-6 relative z-10">
+                    {/* Header */}
+                    <div className="flex items-center justify-between">
+                      <div className="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center text-primary group-hover:scale-110 transition-transform duration-500">
+                        <Icon className="w-6 h-6" />
                       </div>
-                      <h3 className="font-montserrat font-extrabold text-2xl sm:text-3xl text-white">
-                        {selectedService.title}
+                      <span className="font-montserrat font-extrabold text-2xl text-white/10 group-hover:text-primary/20 transition-colors duration-500 font-montserrat">
+                        {service.num}
+                      </span>
+                    </div>
+
+                    {/* Title & Desc */}
+                    <div className="space-y-2">
+                      <h3 className="font-montserrat font-extrabold text-lg sm:text-xl text-white group-hover:text-primary transition-colors duration-300 leading-snug">
+                        {service.title}
                       </h3>
-                      <p className="text-gray-400 text-sm sm:text-base leading-relaxed">
-                        {selectedService.desc}
+                      <p className="text-xs sm:text-sm text-gray-400 leading-relaxed font-inter line-clamp-3">
+                        {service.desc}
                       </p>
                     </div>
+
+                    {/* Features list */}
+                    <ul className="space-y-2 pt-4 border-t border-white/5">
+                      {service.features.slice(0, 2).map((feat, fIdx) => (
+                        <li key={fIdx} className="flex items-center gap-2 text-xs text-gray-300 font-inter">
+                          <Check className="w-3.5 h-3.5 text-primary shrink-0" />
+                          <span>{feat}</span>
+                        </li>
+                      ))}
+                    </ul>
                   </div>
 
-                  {/* Supports Block */}
-                  <div className="p-4 bg-white/5 border border-white/5 rounded-xl flex flex-wrap items-center gap-2.5">
-                    <span className="text-[10px] font-montserrat font-bold uppercase tracking-wider text-[#ff5c00]">
-                      Ecosystem Synergy:
-                    </span>
-                    <span className="text-xs text-white/80 font-medium">
-                      {selectedService.supports}
-                    </span>
-                  </div>
-
-                  {/* Two Column details: Features and Metrics */}
-                  <div className="grid md:grid-cols-2 gap-6 pt-2">
-                    <div className="space-y-4">
-                      <h4 className="font-montserrat font-bold text-sm uppercase tracking-wider text-white border-b border-white/5 pb-2">
-                        Core Offerings
-                      </h4>
-                      <ul className="space-y-3">
-                        {selectedService.features.map((feature, fIdx) => (
-                          <li key={fIdx} className="flex items-start gap-2.5 text-xs text-gray-300 leading-normal">
-                            <Check className="w-4 h-4 text-[#ff5c00] shrink-0 mt-0.5" />
-                            <span>{feature}</span>
-                          </li>
-                        ))}
-                      </ul>
+                  {/* Footer with supports and button */}
+                  <div className="pt-6 mt-6 border-t border-white/5 flex items-center justify-between relative z-10">
+                    <div className="text-[10px] text-gray-500 uppercase tracking-wider font-inter">
+                      Supports: <span className="text-gray-300 font-bold">{service.supports}</span>
                     </div>
-
-                    <div className="space-y-4">
-                      <h4 className="font-montserrat font-bold text-sm uppercase tracking-wider text-white border-b border-white/5 pb-2">
-                        Performance Metrics
-                      </h4>
-                      <ul className="space-y-3">
-                        {selectedService.metrics.map((metric, mIdx) => (
-                          <li key={mIdx} className="flex items-start gap-2.5 text-xs text-gray-300 leading-normal">
-                            <Zap className="w-4 h-4 text-[#ff5c00] shrink-0 mt-0.5" />
-                            <span>{metric}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
+                    <Link
+                      href={service.href}
+                      className="w-10 h-10 rounded-xl bg-white/5 group-hover:bg-[#ff5c00] text-white flex items-center justify-center transition-all duration-300"
+                    >
+                      <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
+                    </Link>
                   </div>
                 </motion.div>
-              </AnimatePresence>
-
-              {/* Action Buttons at bottom */}
-              <div className="mt-8 pt-6 border-t border-white/5 flex flex-wrap items-center justify-between gap-4">
-                <span className="text-xs text-gray-400">
-                  Click below to view detailed breakdown, case studies, and technologies.
-                </span>
-                <div className="flex gap-3">
-                  <Link
-                    href={selectedService.href}
-                    className="px-5 py-2.5 bg-[#ff5c00] hover:bg-[#e05200] text-white font-bold rounded-xl text-xs sm:text-sm transition-all flex items-center gap-1.5 min-h-[40px]"
-                  >
-                    View Page Details <Eye className="w-4 h-4" />
-                  </Link>
-                  <Link
-                    href="/book-consultation"
-                    className="px-5 py-2.5 border border-white/10 hover:bg-white/5 text-white font-bold rounded-xl text-xs sm:text-sm transition-all flex items-center justify-center min-h-[40px]"
-                  >
-                    Talk to an Expert
-                  </Link>
-                </div>
-              </div>
-            </div>
+              );
+            })}
           </div>
         </div>
       </section>
 
-      {/* ─── 3. About Services Section (Light / White Background) ───────────── */}
-      <section className="bg-white text-black py-16 sm:py-24 relative z-10 border-t border-gray-100">
+      {/* ─── 3. About Services Section (Dark Background) ───────────── */}
+      <section className="bg-[#050505] text-white py-16 sm:py-24 relative z-10 border-t border-white/5">
         <div className="max-w-7xl mx-auto px-6 sm:px-12 grid lg:grid-cols-12 gap-12 items-center">
           <motion.div 
             initial={{ opacity: 0, x: -30 }}
@@ -492,10 +400,10 @@ export default function ServicesPage() {
             <span className="text-[#ff5c00] font-bold text-xs uppercase tracking-widest font-montserrat block">
               About Our Services
             </span>
-            <h2 className="font-montserrat font-extrabold text-3xl sm:text-4xl lg:text-5xl text-black leading-tight">
+            <h2 className="font-montserrat font-extrabold text-3xl sm:text-4xl lg:text-5xl text-white leading-tight">
               Everything Your Business Needs Under <span className="text-[#ff5c00]">One Ecosystem</span>
             </h2>
-            <div className="space-y-4 text-gray-600 text-sm sm:text-base leading-relaxed font-inter">
+            <div className="space-y-4 text-gray-400 text-sm sm:text-base leading-relaxed font-inter">
               <p>
                 Whether you're launching your first startup, modernizing an enterprise, building an eCommerce platform, or integrating AI into daily operations, OCTADECENT provides complete business solutions under one roof.
               </p>
@@ -511,9 +419,9 @@ export default function ServicesPage() {
             viewport={{ once: true }}
             className="lg:col-span-5 relative flex items-center justify-center min-h-[300px]"
           >
-            <div className="w-full aspect-[4/3] relative rounded-3xl overflow-hidden border border-gray-200 shadow-xl bg-gray-50 flex items-center justify-center">
+            <div className="w-full aspect-[4/3] relative rounded-3xl overflow-hidden border border-white/10 shadow-2xl bg-white/5 flex items-center justify-center">
               <Image 
-                src="/annapurna.png" 
+                src="/sr.png" 
                 alt="OCTADECENT ecosystem team working" 
                 fill 
                 className="object-cover"
@@ -523,12 +431,12 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      {/* ─── 4. Why Choose OCTADECENT (Light Gray Background) ─────────────────── */}
-      <section className="bg-[#fcfcfc] text-black py-16 sm:py-24 relative z-10 border-t border-gray-100">
+      {/* ─── 4. Why Choose OCTADECENT (Dark Background) ─────────────────── */}
+      <section className="bg-[#08080a] text-white py-16 sm:py-24 relative z-10 border-t border-white/5">
         <div className="max-w-7xl mx-auto px-6 sm:px-12">
           <motion.div {...fadeInUp} className="text-center max-w-3xl mx-auto mb-16 space-y-4">
             <span className="text-[#ff5c00] font-bold text-xs uppercase tracking-widest font-montserrat block">Why Choose OCTADECENT</span>
-            <h2 className="font-montserrat font-extrabold text-3xl sm:text-4xl text-black">Built For Impact. Designed For Growth.</h2>
+            <h2 className="font-montserrat font-extrabold text-3xl sm:text-4xl text-white">Built For Impact. Designed For Growth.</h2>
           </motion.div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
@@ -541,13 +449,13 @@ export default function ServicesPage() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.4, delay: idx * 0.05 }}
-                  className="bg-white p-6 sm:p-8 rounded-2xl border border-gray-100 hover:border-[#ff5c00]/30 hover:shadow-lg transition-all duration-300 flex flex-col gap-3"
+                  className="bg-white/5 p-6 sm:p-8 rounded-2xl border border-white/5 hover:border-[#ff5c00]/30 hover:shadow-2xl transition-all duration-300 flex flex-col gap-3"
                 >
                   <div className="w-10 h-10 rounded-xl bg-[#ff5c00]/10 flex items-center justify-center text-[#ff5c00]">
                     <CardIcon className="w-5 h-5" />
                   </div>
-                  <h3 className="font-montserrat font-bold text-base sm:text-lg text-black">{w.title}</h3>
-                  <p className="text-xs sm:text-sm text-gray-500 leading-relaxed font-inter">{w.desc}</p>
+                  <h3 className="font-montserrat font-bold text-base sm:text-lg text-white">{w.title}</h3>
+                  <p className="text-xs sm:text-sm text-gray-400 leading-relaxed font-inter">{w.desc}</p>
                 </motion.div>
               );
             })}
@@ -555,8 +463,8 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      {/* ─── 5. Industries We Serve (Light Background) ───────────────────────── */}
-      <section className="bg-white text-black py-16 sm:py-24 relative z-10 border-t border-gray-100">
+      {/* ─── 5. Industries We Serve (Dark Background) ───────────────────────── */}
+      <section className="bg-[#050505] text-white py-16 sm:py-24 relative z-10 border-t border-white/5">
         <div className="max-w-7xl mx-auto px-6 sm:px-12">
           <motion.div {...fadeInUp} className="text-center max-w-3xl mx-auto mb-16 space-y-4">
             <span className="text-[#ff5c00] font-bold text-xs uppercase tracking-widest font-montserrat block">Industries We Serve</span>
@@ -572,7 +480,7 @@ export default function ServicesPage() {
                   whileInView={{ opacity: 1, scale: 1 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.3, delay: idx * 0.03 }}
-                  className="px-4 py-3 bg-white border border-gray-200 rounded-2xl text-xs sm:text-sm font-semibold text-gray-700 hover:border-[#ff5c00] hover:text-[#ff5c00] hover:shadow-md transition-all flex items-center gap-2 cursor-default font-inter"
+                  className="px-4 py-3 bg-white/5 border border-white/10 rounded-2xl text-xs sm:text-sm font-semibold text-gray-300 hover:border-[#ff5c00] hover:text-[#ff5c00] hover:shadow-2xl transition-all flex items-center gap-2 cursor-default font-inter"
                 >
                   <IndIcon className="w-4 h-4 text-[#ff5c00]" />
                   <span>{ind.name}</span>
@@ -583,12 +491,12 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      {/* ─── 6. Our Process (White Background) ───────────────────────────────── */}
-      <section className="bg-[#fcfcfc] text-black py-16 sm:py-24 relative z-10 border-t border-gray-100">
+      {/* ─── 6. Our Process (Dark Background) ───────────────────────────────── */}
+      <section className="bg-[#08080a] text-white py-16 sm:py-24 relative z-10 border-t border-white/5">
         <div className="max-w-7xl mx-auto px-6 sm:px-12">
           <motion.div {...fadeInUp} className="text-center max-w-3xl mx-auto mb-16 space-y-4">
             <span className="text-[#ff5c00] font-bold text-xs uppercase tracking-widest font-montserrat block">Our Process</span>
-            <h2 className="font-montserrat font-extrabold text-3xl sm:text-4xl text-black">How We Work</h2>
+            <h2 className="font-montserrat font-extrabold text-3xl sm:text-4xl text-white">How We Work</h2>
           </motion.div>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-6 relative">
@@ -601,13 +509,13 @@ export default function ServicesPage() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.4, delay: idx * 0.08 }}
-                    className="bg-white p-6 rounded-2xl border border-gray-100 space-y-3 relative hover:border-[#ff5c00]/30 hover:shadow-md transition-all duration-300 z-10"
+                    className="bg-white/5 p-6 rounded-2xl border border-white/5 space-y-3 relative hover:border-[#ff5c00]/30 hover:shadow-2xl transition-all duration-300 z-10"
                   >
                     <div className="w-10 h-10 rounded-xl bg-[#ff5c00]/10 flex items-center justify-center text-[#ff5c00]">
                       <StepIcon className="w-5 h-5" />
                     </div>
-                    <h3 className="font-montserrat font-bold text-base text-black">{p.title}</h3>
-                    <p className="text-xs text-gray-500 leading-relaxed font-inter">{p.desc}</p>
+                    <h3 className="font-montserrat font-bold text-base text-white">{p.title}</h3>
+                    <p className="text-xs text-gray-400 leading-relaxed font-inter">{p.desc}</p>
                   </motion.div>
                   {/* Connector Arrow for Large Screens */}
                   {idx < 4 && (
@@ -627,7 +535,7 @@ export default function ServicesPage() {
         <div className="max-w-7xl mx-auto px-6 sm:px-12">
           <motion.div {...fadeInUp} className="text-center max-w-3xl mx-auto mb-16 space-y-4">
             <span className="text-[#ff5c00] font-bold text-xs uppercase tracking-widest font-montserrat block">The Octadecent Ecosystem</span>
-            <h2 className="font-montserrat font-extrabold text-3xl sm:text-4xl text-white">18 Ventures. One Vision.</h2>
+            <h2 className="font-montserrat font-extrabold text-3xl sm:text-4xl text-white">One Ecosystem. Infinite Possibilities.</h2>
             <p className="text-gray-400 text-sm sm:text-base leading-relaxed font-inter">
               A powerful ecosystem of companies working together to create impact across industries.
             </p>
@@ -662,14 +570,14 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      {/* ─── 8. Frequently Asked Questions (White Background) ───────────────── */}
-      <section className="bg-white text-black py-16 sm:py-24 relative z-10 border-t border-gray-100">
+      {/* ─── 8. Frequently Asked Questions (Dark Background) ───────────────── */}
+      <section className="bg-[#050505] text-white py-16 sm:py-24 relative z-10 border-t border-white/5">
         <div className="max-w-7xl mx-auto px-6 sm:px-12 grid lg:grid-cols-12 gap-12 items-start">
           {/* Left: FAQs */}
           <div className="lg:col-span-8 space-y-6">
             <motion.div {...fadeInUp} className="space-y-4">
               <span className="text-[#ff5c00] font-bold text-xs uppercase tracking-widest font-montserrat block">Frequently Asked Questions</span>
-              <h2 className="font-montserrat font-extrabold text-3xl sm:text-4xl text-black">Everything You Need To Know</h2>
+              <h2 className="font-montserrat font-extrabold text-3xl sm:text-4xl text-white">Everything You Need To Know</h2>
             </motion.div>
 
             <div className="space-y-4 pt-6">
@@ -678,11 +586,11 @@ export default function ServicesPage() {
                 return (
                   <div 
                     key={faq.q}
-                    className="border border-gray-100 rounded-2xl overflow-hidden transition-all duration-300 hover:border-gray-200 bg-white"
+                    className="border border-white/5 rounded-2xl overflow-hidden transition-all duration-300 hover:border-white/10 bg-white/5"
                   >
                     <button
                       onClick={() => setActiveFaq(isOpen ? null : idx)}
-                      className="w-full p-6 text-left flex items-center justify-between font-inter font-bold text-sm sm:text-base text-black cursor-pointer select-none"
+                      className="w-full p-6 text-left flex items-center justify-between font-inter font-bold text-sm sm:text-base text-white cursor-pointer select-none"
                     >
                       <span>{faq.q}</span>
                       <ChevronDown className={`w-5 h-5 text-gray-400 transition-transform duration-300 ${isOpen ? 'rotate-180 text-[#ff5c00]' : ''}`} />
@@ -697,7 +605,7 @@ export default function ServicesPage() {
                           transition={{ duration: 0.25 }}
                           className="overflow-hidden"
                         >
-                          <div className="p-6 pt-0 border-t border-gray-100 font-inter text-xs sm:text-sm text-gray-500 leading-relaxed">
+                          <div className="p-6 pt-0 border-t border-white/5 font-inter text-xs sm:text-sm text-gray-400 leading-relaxed">
                             {faq.a}
                           </div>
                         </motion.div>
@@ -709,14 +617,14 @@ export default function ServicesPage() {
             </div>
           </div>
 
-          {/* Right: 3D FAQ Box Decoration */}
-          <div className="lg:col-span-4 relative flex items-center justify-center min-h-[300px] border border-gray-100 rounded-3xl p-8 bg-gray-50/50 shadow-sm">
+          {/* Right: FAQ Box Decoration */}
+          <div className="lg:col-span-4 relative flex items-center justify-center min-h-[300px] border border-white/5 rounded-3xl p-8 bg-white/[0.02] shadow-2xl">
             <div className="flex flex-col items-center text-center space-y-4">
               <div className="w-16 h-16 rounded-full bg-[#ff5c00]/10 flex items-center justify-center text-[#ff5c00]">
                 <HelpCircle className="w-8 h-8" />
               </div>
-              <h3 className="font-montserrat font-bold text-lg text-black">Still Have Questions?</h3>
-              <p className="text-xs text-gray-500 max-w-[200px] leading-relaxed font-inter">
+              <h3 className="font-montserrat font-bold text-lg text-white">Still Have Questions?</h3>
+              <p className="text-xs text-gray-400 max-w-[200px] leading-relaxed font-inter">
                 If you have custom queries, our strategic advisers are here to assist.
               </p>
               <Link 
@@ -731,7 +639,7 @@ export default function ServicesPage() {
       </section>
 
       {/* ─── 9. Call to Action (Dark Box with Rocket) ───────────────────────── */}
-      <section className="bg-white py-16 sm:py-24 max-w-7xl mx-auto px-6 relative z-10">
+      <section className="bg-transparent py-16 sm:py-24 max-w-7xl mx-auto px-6 relative z-10">
         <motion.div
           initial={{ opacity: 0, scale: 0.96 }}
           whileInView={{ opacity: 1, scale: 1 }}

@@ -6,6 +6,7 @@ import Footer from "@/components/Footer";
 import SmoothScroll from "@/components/SmoothScroll";
 import WhatsAppButton from "@/components/WhatsAppButton";
 
+
 // ─── Fonts — display:swap prevents FOIT, subset reduces file size ───────────
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -81,7 +82,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: "OCTADECENT | AI, Web & Mobile App Development Company in India",
-    description: "18 Companies. One Vision. Infinite Commerce. Scalable, high-performance E-commerce, Quick Commerce, and Enterprise AI solutions. Custom software, mobile apps, digital marketing & more from Hyderabad, India.",
+    description: "One Ecosystem. Infinite Possibilities. Scalable, high-performance E-commerce, Quick Commerce, and Enterprise AI solutions. Custom software, mobile apps, digital marketing & more from Hyderabad, India.",
     url: "https://octadecent.com",
     siteName: "OCTADECENT",
     images: [
@@ -98,7 +99,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "OCTADECENT | AI, Web & Mobile App Development Company",
-    description: "18 Companies. One Vision. Infinite Commerce. Custom software, AI, mobile apps, e-commerce & digital marketing from Hyderabad, India.",
+    description: "One Ecosystem. Infinite Possibilities. Custom software, AI, mobile apps, e-commerce & digital marketing from Hyderabad, India.",
     images: ["https://octadecent.com/og-image.png"],
     creator: "@octadecent",
   },

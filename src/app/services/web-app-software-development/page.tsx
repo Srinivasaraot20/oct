@@ -186,83 +186,64 @@ export default function WebDevelopmentPage() {
           </div>
         </div>
 
-        <div className="grid lg:grid-cols-12 gap-12 lg:gap-8 items-center min-h-[500px]">
-          {/* Hero Left Content */}
-          <div className="lg:col-span-6 space-y-6">
-            <h1 className="font-montserrat font-extrabold text-white text-left tracking-tight leading-[1.08] lg:max-w-xl">
-              We Design. We Develop.<br />
-              <span className="bg-gradient-to-r from-[#ff8a00] to-[#ff5c00] bg-clip-text text-transparent drop-shadow-[0_2px_10px_rgba(255,92,0,0.15)]">
-                We Build Your Success.
-              </span>
-            </h1>
+        <div className="flex flex-col items-center justify-center text-center max-w-3xl mx-auto min-h-[400px] space-y-6">
+          <h1 className="font-montserrat font-extrabold text-white tracking-tight leading-[1.08] text-center">
+            We Design. We Develop.<br />
+            <span className="bg-gradient-to-r from-[#ff8a00] to-[#ff5c00] bg-clip-text text-transparent drop-shadow-[0_2px_10px_rgba(255,92,0,0.15)]">
+              We Build Your Success.
+            </span>
+          </h1>
 
-            <p className="font-inter text-muted text-base leading-relaxed max-w-lg text-left">
-              We design and develop digital products tailored to business needs. From powerful websites and mobile apps to enterprise software solutions, we build technology that drives real impact.
-            </p>
+          <p className="font-inter text-muted text-base leading-relaxed max-w-lg mx-auto text-center">
+            We design and develop digital products tailored to business needs. From powerful websites and mobile apps to enterprise software solutions, we build technology that drives real impact.
+          </p>
 
-            {/* Smart tags */}
-            <div className="grid grid-cols-2 gap-3 max-w-md pt-2">
-              {[
-                'Scalable Solutions',
-                'Secure & Reliable',
-                'High Performance',
-                'Future Ready'
-              ].map((tag) => (
-                <div key={tag} className="flex items-center gap-2 text-white/90 text-sm font-semibold">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#ff6b00] shadow-[0_0_8px_#ff6b00]" />
-                  <span>{tag}</span>
-                </div>
-              ))}
-            </div>
-
-            {/* CTA Buttons */}
-            <div className="flex flex-wrap gap-4 pt-4">
-              <Link 
-                href="/contact" 
-                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-[#ff5c00] hover:bg-[#cc4a00] text-white font-bold rounded-xl orange-glow transition-all duration-300 font-inter text-sm group"
-              >
-                Get Free Consultation 
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </Link>
-
-              <Link 
-                href="/services" 
-                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 border border-white/10 hover:border-[#ff5c00]/50 hover:bg-[#ff5c00]/5 text-white/90 font-bold rounded-xl transition-all duration-300 font-inter text-sm group"
-              >
-                <LayoutGrid className="w-4 h-4 text-muted group-hover:text-primary transition-colors" />
-                Explore All Services
-              </Link>
-            </div>
-
-            {/* Vyomora Logo Integration */}
-            <div className="pt-6 border-t border-white/5 flex items-center gap-4">
-              <span className="text-xs font-semibold text-muted/60 uppercase tracking-widest font-inter">This Service Supports</span>
-              <div className="relative h-7 w-28 opacity-80 hover:opacity-100 transition-opacity">
-                <Image
-                  src="/vyomora.png"
-                  alt="Vyomora Logo"
-                  fill
-                  className="object-contain object-left"
-                />
+          {/* Smart tags */}
+          <div className="flex flex-wrap items-center justify-center gap-4 max-w-md pt-2">
+            {[
+              'Scalable Solutions',
+              'Secure & Reliable',
+              'High Performance',
+              'Future Ready'
+            ].map((tag) => (
+              <div key={tag} className="flex items-center gap-2 text-white/90 text-sm font-semibold">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#ff6b00] shadow-[0_0_8px_#ff6b00]" />
+                <span>{tag}</span>
               </div>
-            </div>
+            ))}
           </div>
 
-          {/* Hero Right Visuals - Devices mockup */}
-          <div className="lg:col-span-6 flex items-center justify-center relative min-h-[380px] sm:min-h-[460px]">
-            {/* Dashed circular background tracks */}
-            <div className="absolute w-[360px] h-[360px] sm:w-[420px] sm:h-[420px] border border-white/5 rounded-full -z-10 animate-spin-slow" />
-            
-            {/* Devices display image container */}
-            <div className="relative w-[340px] h-[340px] sm:w-[440px] sm:h-[440px] rounded-3xl overflow-hidden shadow-[0_0_60px_rgba(255,92,0,0.18)] border border-white/10 bg-[#0a0a0a] z-10 flex items-center justify-center group">
-              <Image 
-                src="/dev-devices.jpg" 
-                alt="Development Platforms Showcase" 
-                fill
-                className="object-cover scale-100 group-hover:scale-105 transition-transform duration-700" 
-                priority
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent pointer-events-none" />
+          {/* CTA Buttons */}
+          <div className="flex flex-wrap items-center justify-center gap-4 pt-4">
+            <Link 
+              href="/contact" 
+              className="inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-[#ff5c00] hover:bg-[#cc4a00] text-white font-bold rounded-xl orange-glow transition-all duration-300 font-inter text-sm group"
+            >
+              Get Free Consultation 
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            </Link>
+
+            <Link 
+              href="/services" 
+              className="inline-flex items-center justify-center gap-2 px-6 py-3.5 border border-white/10 hover:border-[#ff5c00]/50 hover:bg-[#ff5c00]/5 text-white/90 font-bold rounded-xl transition-all duration-300 font-inter text-sm group"
+            >
+              <LayoutGrid className="w-4 h-4 text-muted group-hover:text-primary transition-colors" />
+              Explore All Services
+            </Link>
+          </div>
+
+          {/* Service Supports */}
+          <div className="pt-6 border-t border-white/5 flex flex-col sm:flex-row items-center justify-center gap-3 w-full">
+            <span className="text-xs font-semibold text-muted/60 uppercase tracking-widest font-inter">This Service Supports</span>
+            <div className="flex flex-wrap items-center justify-center gap-3">
+              {[
+                { name: 'OCTASVERSE', logo: '/octas_freelancing.png' }
+              ].map((s, idx) => (
+                <div key={idx} className="flex items-center gap-2 px-3 py-1 rounded-xl bg-white/5 border border-white/10">
+                  <Image src={s.logo} alt={s.name} width={16} height={16} className="object-contain rounded-full" />
+                  <span className="text-[10px] font-extrabold tracking-wider font-montserrat text-white">{s.name}</span>
+                </div>
+              ))}
             </div>
           </div>
         </div>
@@ -320,15 +301,7 @@ export default function WebDevelopmentPage() {
                   <h3 className="font-montserrat font-bold text-white text-base leading-tight group-hover:text-[#ff6b00] transition-colors">{service.title}</h3>
                   <p className="font-inter text-muted text-xs leading-relaxed">{service.desc}</p>
                 </div>
-                
-                <div className="pt-5 mt-auto">
-                  <Link 
-                    href="/contact" 
-                    className="inline-flex items-center gap-1 text-[11px] font-bold text-[#ff6b00] hover:text-white uppercase tracking-wider font-inter group-hover:gap-2 transition-all"
-                  >
-                    Learn More <ChevronRight className="w-3.5 h-3.5" />
-                  </Link>
-                </div>
+
               </motion.div>
             );
           })}

@@ -120,41 +120,23 @@ export default function DigitalMarketingPage() {
             </div>
 
             {/* Service Supports */}
-            <div className="flex items-center gap-3 pt-6 border-t border-white/10 w-fit">
+            <div className="flex flex-wrap items-center gap-3 pt-6 border-t border-white/10 w-fit">
               <span className="text-xs text-gray-500 uppercase tracking-widest font-bold font-inter">This Service Supports</span>
-              <div className="flex items-center gap-2 px-3 py-1 rounded-xl bg-white/5 border border-white/10">
-                <Image src="/vyomora.png" alt="Vyomora logo" width={20} height={20} className="object-contain" />
-                <span className="text-xs font-extrabold tracking-wider font-montserrat">VYOMORA</span>
+              <div className="flex flex-wrap items-center gap-3">
+                {[
+                  { name: 'VYOMORA', logo: '/vyomora.png' },
+                  { name: 'OCTASVERSE', logo: '/octas_freelancing.png' }
+                ].map((s, idx) => (
+                  <div key={idx} className="flex items-center gap-2 px-3 py-1 rounded-xl bg-white/5 border border-white/10">
+                    <Image src={s.logo} alt={s.name} width={16} height={16} className="object-contain rounded-full" />
+                    <span className="text-[10px] font-extrabold tracking-wider font-montserrat">{s.name}</span>
+                  </div>
+                ))}
               </div>
             </div>
           </motion.div>
         </div>
 
-        {/* Bottom Stat Bar (Home style - translucent black overlay) */}
-        <div className="mt-16 w-full flex justify-center">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.25 }}
-            className="w-full max-w-4xl p-6 sm:p-8 rounded-[1.5rem] border border-white/10 bg-black/40 backdrop-blur-md grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 relative z-20 shadow-[0_8px_32px_0_rgba(0,0,0,0.5)]"
-          >
-            {[
-              { val: '250+', label: 'Projects Delivered', icon: Award },
-              { val: '120+', label: 'Happy Clients', icon: Users },
-              { val: '10X', label: 'Average ROI', icon: Zap },
-              { val: '98%', label: 'Client Retention', icon: ShieldCheck }
-            ].map((s, idx) => {
-              const StatIcon = s.icon;
-              return (
-                <div key={idx} className="flex flex-col items-center text-center space-y-2">
-                  <StatIcon className="w-8 h-8 text-[#ff5c00] mb-1" />
-                  <span className="font-montserrat font-extrabold text-[#ffffff] text-sm sm:text-base leading-tight">{s.val}</span>
-                  <span className="text-[10px] sm:text-xs text-gray-400 font-bold uppercase tracking-wider font-inter">{s.label}</span>
-                </div>
-              );
-            })}
-          </motion.div>
-        </div>
       </header>
 
       {/* ─── 3. What We Do Section (Dark Background) ─────────────────────────── */}
@@ -189,11 +171,7 @@ export default function DigitalMarketingPage() {
                     <h3 className="font-montserrat font-bold text-sm sm:text-base text-white group-hover:text-[#ff5c00] transition-colors">{svc.title}</h3>
                     <p className="text-xs text-gray-400 leading-relaxed font-inter">{svc.desc}</p>
                   </div>
-                  <div className="pt-4 flex justify-start">
-                    <Link href="/book-consultation" className="inline-flex items-center gap-1 text-[11px] font-bold text-[#ff5c00] hover:translate-x-0.5 transition-transform font-inter">
-                      Learn More <ChevronRight className="w-3.5 h-3.5" />
-                    </Link>
-                  </div>
+
                 </motion.div>
               );
             })}

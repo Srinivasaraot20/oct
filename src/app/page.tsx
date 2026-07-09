@@ -9,7 +9,7 @@ import {
   ArrowRight, CheckCircle, XCircle, ChevronRight,
   ShoppingCart, Globe, Smartphone, Cpu, TrendingUp, Bolt,
   Rocket, Target, ShieldCheck, Lightbulb, X, ExternalLink, Mail,
-  Briefcase, Users, Palette, Layers
+  Briefcase, Users, Palette, Layers, Calendar
 } from 'lucide-react';
 import AnimatedCounter from '@/components/AnimatedCounter';
 import PartnerCard from '@/components/PartnerCard';
@@ -188,23 +188,7 @@ const partnersData: PartnerItem[] = [
       { emoji: '🛠️', text: 'Equipment Rentals' }
     ]
   },
-  {
-    logo: '/th.png',
-    name: 'Thriftora',
-    tagline: 'Sustainable Fashion & Lifestyle',
-    shortSummary: 'A curated e-commerce marketplace promoting sustainable fashion, second-hand clothing, and thrift lifestyle culture.',
-    description: 'Thriftora is a dedicated online thrifting marketplace that enables users to buy and sell premium pre-loved apparel, vintage collections, and sustainable lifestyle products easily.',
-    services: [
-      'Sustainable Commerce',
-      'Peer-to-Peer Marketplace',
-      'Pre-loved Fashion Curation',
-      'Order Fulfillment',
-      'Seller Payout Systems'
-    ],
-    partnershipValue: 'OCTADECENT empowers Thriftora with a high-performance marketplace platform, digital billing pipelines, and scalable buyer-seller match engines.',
-    ctaText: 'Explore Partner',
-    ctaHref: ''
-  },
+  
   {
     logo: '/1000156538.png',
     name: 'RevertedAI',
@@ -486,7 +470,7 @@ export default function HomePage() {
             </h1>
 
             <p className="font-inter text-sm sm:text-base md:text-lg text-[#bab8b7] text-left max-w-xl leading-relaxed mb-8">
-              OCTADECENT is a global conglomerate delivering technology, commerce, marketing & growth solutions through 18+ ventures under one powerful ecosystem.
+              OCTADECENT is a global business ecosystem delivering end-to-end technology, commerce, AI, automation, digital marketing, and business growth solutions through one connected platform.
             </p>
 
             {/* CTAs */}
@@ -518,11 +502,11 @@ export default function HomePage() {
             <div className="absolute inset-[5%] rounded-full border border-[#ff5c00]/5 animate-[spin_40s_linear_infinite_reverse] pointer-events-none" />
 
             {/* Technology Wireframe Globe */}
-            <div className="absolute inset-[10%] mix-blend-screen opacity-40 pointer-events-none select-none">
+            <div className="absolute inset-[10%] pointer-events-none select-none z-0">
               <Image
-                alt="OCTADECENT global technology wireframe globe representation"
+                alt="OCTADECENT global technology representation"
                 className="w-full h-full object-contain animate-float"
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDaTAk4lFhNOOC9LSMd79RuLZE9ou0g3MS7-b79N9WNNS3vwoYjP1A3-YEJ7TgeJLO3Kuit-jIOdOYfip6T2x30VVRsoF-6dVOqF5qX7KGA_8SoMaH7vHNMCgQ4emr-W-J_cof_PAWe2CjHS8vQfr0Uk2vt4negSRPHBSaxGMjW3SJXoC_HNckW9oCzydwOcqs3UM6ecApSnl65I_Avbn0N0uVljGNw74yO8VZSBvKhBCocnAX34cEcZsxUXR2T3Wx5Jq7TmTlhWK4"
+                src="/home.png"
                 width={400}
                 height={400}
                 priority
@@ -665,7 +649,13 @@ export default function HomePage() {
                     <div className="flex flex-col sm:flex-row items-center sm:items-start gap-5 text-center sm:text-left">
                       <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-full p-[2px] bg-gradient-to-tr from-[#ff5c00]/50 to-[#ff5c00]/20 flex-shrink-0">
                         <div className="w-full h-full bg-[#050816] rounded-full overflow-hidden flex items-center justify-center">
-                          <Image src={partner.logo} alt={`${partner.name} partner logo`} className={`w-full h-full object-contain transition-transform duration-300 ${['Vyomora', 'DotFeelz', 'RevertedAI'].includes(partner.name) ? 'scale-[1.15]' : 'scale-90'}`} width={96} height={96} loading="lazy" />
+                          <Image src={partner.logo} alt={`${partner.name} partner logo`} className={`w-full h-full object-contain transition-transform duration-300 ${
+                            ['Octasverse', 'Thriftora'].includes(partner.name)
+                              ? 'scale-[1.35]'
+                              : ['Vyomora', 'DotFeelz', 'RevertedAI'].includes(partner.name)
+                              ? 'scale-[1.15]'
+                              : 'scale-90'
+                          }`} width={96} height={96} loading="lazy" />
                         </div>
                       </div>
                       <div className="space-y-2">
@@ -792,7 +782,7 @@ export default function HomePage() {
       {/* ============================================
           3. ABOUT SECTION
           ============================================ */}
-      <section className="py-10 sm:py-24 md:py-32 max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
+      <section className="pt-10 pb-4 sm:pt-24 sm:pb-12 md:pt-32 md:pb-16 max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 md:gap-16 lg:gap-20 items-center">
           <motion.div
             initial={{ opacity: 0, x: -30 }}
@@ -830,13 +820,13 @@ export default function HomePage() {
             className="glass-card p-1.5 rounded-3xl overflow-hidden shadow-2xl relative group"
           >
             <div className="absolute inset-0 bg-gradient-to-tr from-primary/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 rounded-3xl" aria-hidden="true" />
-            <div className="aspect-square bg-gradient-to-br from-[#121414] to-black rounded-2xl flex flex-col justify-center items-center text-center relative overflow-hidden">
+            <div className="aspect-[1.6] bg-gradient-to-br from-[#121414] to-black rounded-2xl flex flex-col justify-center items-center text-center relative overflow-hidden">
               <Image
-                alt="OCTADECENT unified commerce dashboard and digital strategy illustration"
+                alt="OCTADECENT core conglomerate ecosystem division diagram illustration"
                 className="w-full h-full object-cover rounded-xl group-hover:scale-105 transition-transform duration-700"
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBYhb_JBlAb1V5Gcl_G7divfkuRlaJ72xksv6Sx8PugVUUwuf2IpWyXnQxs-YfW35c1VNlOj-SBKA7dY0LFtQlfwoJQqXSmS6iEtKVcf-80tvMFD7pEypC-w8j-EOiXnG8L_I6E2rYhaiamziJV_Zq9tExH76OQaKafxNBXCpSqtIwLvKIV9gIZwqzRgYui2fdug7dxaNFOGSG-FUMFZzrzNTwRzJvjZEMfjX5m2ZygUUbQZig8tn4mVXDOx_pCbh5-2DZ1fR9gVV0"
+                src="/conglomerate-core.jpg"
                 width={800}
-                height={800}
+                height={500}
                 loading="lazy"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#050816] via-transparent to-transparent opacity-40" aria-hidden="true" />
@@ -950,43 +940,94 @@ export default function HomePage() {
       {/* ============================================
           9. FINAL CTA
           ============================================ */}
-      <section className="pt-6 pb-12 sm:pt-12 sm:pb-28 md:pt-16 md:pb-36 relative text-center bg-black/40 overflow-hidden z-10">
-        <div className="absolute inset-0 bg-primary/5 pointer-events-none" aria-hidden="true" />
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 relative z-10">
+      <section className="pt-20 pb-20 sm:pt-28 sm:pb-28 md:pt-36 md:pb-36 relative text-center overflow-hidden z-10 border-t border-white/5"
+        style={{
+          background: 'linear-gradient(to top, rgba(5,8,22,0.98) 0%, rgba(5,8,22,0.85) 50%, rgba(5,8,22,0.98) 100%), url("/brain-cta.jpg") center bottom / cover no-repeat'
+        }}
+      >
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 relative z-10">
+          {/* Top Badge */}
+          <motion.div
+            initial={{ opacity: 0, y: 15 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-[#ff5c00]/30 bg-black/50 text-[#ff5c00] text-[10px] sm:text-xs font-bold uppercase tracking-widest font-montserrat mb-8"
+          >
+            <Rocket className="w-3.5 h-3.5 animate-pulse" />
+            Let's Build The Future
+          </motion.div>
+
+          {/* Heading */}
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="font-montserrat font-extrabold text-white mb-6 sm:mb-8 leading-tight"
+            className="font-montserrat font-extrabold text-white leading-tight mb-4"
             style={{ fontSize: 'clamp(2rem, 5vw, 3.75rem)' }}
           >
-            Ready To Build Your<br />Digital Empire?
+            Ready To Build Your<br />
+            <span className="text-[#ff5c00] tracking-tight relative inline-block drop-shadow-[0_0_35px_rgba(255,92,0,0.5)]">Digital Empire?</span>
           </motion.h2>
+
+          {/* Subtitle */}
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="font-inter text-sm sm:text-base md:text-lg text-[#bab8b7] mb-8 sm:mb-12 max-w-xl mx-auto"
+            className="font-inter text-sm sm:text-base md:text-[17px] text-[#bab8b7] mb-12 max-w-2xl mx-auto leading-relaxed"
           >
-            Join the network of thousands of high-performance merchants scaling on Octadecent.
+            Join a powerful ecosystem of innovators, creators, and entrepreneurs scaling faster with <span className="text-[#ff5c00] font-bold">Octadecent</span>.
           </motion.p>
+
+          {/* Features Horizontal Grid */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-6"
+            className="grid grid-cols-2 md:grid-cols-5 gap-6 md:gap-0 max-w-5xl mx-auto mb-16 py-8 border-y border-white/10 items-center justify-center bg-black/10 backdrop-blur-sm rounded-3xl"
+          >
+            {[
+              { icon: TrendingUp, title: "Scalable", subtitle: "Solutions" },
+              { icon: ShieldCheck, title: "Secure &", subtitle: "Reliable" },
+              { icon: Rocket, title: "Performance", subtitle: "Driven" },
+              { icon: Users, title: "Expert", subtitle: "Support" },
+              { icon: Globe, title: "Global", subtitle: "Ecosystem" }
+            ].map((feat, idx) => {
+              const Icon = feat.icon;
+              return (
+                <div key={idx} className="flex flex-col items-center text-center px-4 md:border-r last:border-r-0 border-white/10">
+                  <div className="w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center mb-3 text-[#ff5c00] shadow-[0_4px_15px_rgba(255,92,0,0.15)]">
+                    <Icon className="w-5 h-5" />
+                  </div>
+                  <span className="text-xs sm:text-[13px] font-bold text-white leading-tight">{feat.title}</span>
+                  <span className="text-[10px] sm:text-[11px] text-[#9a9898] mt-0.5 leading-tight">{feat.subtitle}</span>
+                </div>
+              );
+            })}
+          </motion.div>
+
+          {/* Buttons Row */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6"
           >
             <Link
-              href="/contact"
-              className="w-full sm:w-auto px-8 sm:px-12 py-4 sm:py-5 bg-primary hover:bg-primary-dark text-white rounded-2xl font-inter font-bold orange-glow hover:scale-105 transition-all text-center cursor-pointer text-sm sm:text-base"
+              href="/services"
+              className="w-full sm:w-auto px-8 py-4 sm:py-5 bg-gradient-to-r from-[#ff5c00] to-[#e05200] hover:from-[#e05200] hover:to-[#ff5c00] text-white rounded-2xl font-inter font-bold orange-glow hover:scale-105 transition-all text-center flex items-center justify-center gap-3 cursor-pointer text-sm sm:text-base shadow-[0_4px_25px_rgba(255,107,0,0.4)]"
             >
-              Initialize Integration
+              <Rocket className="w-5 h-5 text-white" />
+              <span>Initialize Integration</span>
+              <ArrowRight className="w-4 h-4 ml-1" />
             </Link>
             <Link
               href="/book-consultation"
-              className="w-full sm:w-auto px-8 sm:px-12 py-4 sm:py-5 border border-white/20 bg-white/5 backdrop-blur-md rounded-2xl font-inter font-bold hover:bg-white/10 transition-all text-center cursor-pointer text-sm sm:text-base"
+              className="w-full sm:w-auto px-8 py-4 sm:py-5 border border-white/10 bg-[#0a0d1a]/80 backdrop-blur-md hover:bg-[#0a0d1a] hover:border-white/20 text-white rounded-2xl font-inter font-bold hover:scale-105 transition-all text-center flex items-center justify-center gap-3 cursor-pointer text-sm sm:text-base shadow-[0_8px_32px_rgba(0,0,0,0.4)]"
             >
-              Book Free Consultation
+              <Calendar className="w-5 h-5 text-[#ff5c00]" />
+              <span>Book Free Consultation</span>
+              <ArrowRight className="w-4 h-4 ml-1" />
             </Link>
           </motion.div>
         </div>
