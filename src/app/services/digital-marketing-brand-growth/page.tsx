@@ -65,78 +65,97 @@ export default function DigitalMarketingPage() {
 
       {/* ─── 1. Hero Section ─────────────────────────────────────────────────── */}
       <header className="relative pt-8 pb-16 px-6 sm:px-12 max-w-[1440px] mx-auto z-10 border-b border-white/5">
-        <div className="max-w-4xl space-y-6">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="space-y-6"
-          >
-            <span className="inline-block px-3 py-1.5 rounded-full border border-[#ff5c00]/25 bg-[#ff5c00]/8 text-[#ff5c00] text-xs font-semibold uppercase tracking-widest font-montserrat">
-              Digital Marketing & Brand Growth
-            </span>
-            
-            <h1 className="font-montserrat font-extrabold text-4xl sm:text-5xl md:text-6xl text-white leading-tight">
-              Grow Your Brand.<br />
-              <span className="text-[#ff5c00]">Dominate Digital.</span>
-            </h1>
-            
-            <p className="text-[#bab8b7] text-sm sm:text-base leading-relaxed max-w-2xl font-inter">
-              We help businesses increase visibility, generate leads, and build strong brands across digital platforms.
-            </p>
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          <div className="lg:col-span-7 space-y-6">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              className="space-y-6"
+            >
+              <span className="inline-block px-3 py-1.5 rounded-full border border-[#ff5c00]/25 bg-[#ff5c00]/8 text-[#ff5c00] text-xs font-semibold uppercase tracking-widest font-montserrat">
+                Digital Marketing & Brand Growth
+              </span>
+              
+              <h1 className="font-montserrat font-extrabold text-4xl sm:text-5xl md:text-6xl text-white leading-tight">
+                Grow Your Brand.<br />
+                <span className="text-[#ff5c00]">Dominate Digital.</span>
+              </h1>
+              
+              <p className="text-[#bab8b7] text-sm sm:text-base leading-relaxed max-w-2xl font-inter">
+                We help businesses increase visibility, generate leads, and build strong brands across digital platforms.
+              </p>
 
-            {/* Tags Row */}
-            <div className="flex flex-wrap gap-2.5 pt-2">
-              {[
-                { label: 'More Visibility', icon: Eye },
-                { label: 'Quality Leads', icon: Users },
-                { label: 'Stronger Brands', icon: Award },
-                { label: 'Higher ROI', icon: Zap }
-              ].map((tag, idx) => {
-                const TagIcon = tag.icon;
-                return (
-                  <span key={idx} className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-xs font-medium text-gray-300">
-                    <TagIcon className="w-3.5 h-3.5 text-[#ff5c00]" />
-                    {tag.label}
-                  </span>
-                );
-              })}
-            </div>
-            
-            {/* Action Buttons */}
-            <div className="flex flex-wrap gap-4 pt-4">
-              <Link 
-                href="/book-consultation"
-                className="px-6 py-3.5 bg-[#ff5c00] hover:bg-[#e05200] text-white font-bold rounded-xl text-sm transition-all flex items-center gap-2 cursor-pointer min-h-[44px]"
-              >
-                Get Free Consultation <ArrowRight className="w-4 h-4" />
-              </Link>
-              <Link 
-                href="/services" 
-                className="px-6 py-3.5 border border-white/10 hover:bg-white/5 text-white font-bold rounded-xl text-sm transition-all flex items-center justify-center gap-2 min-h-[44px] font-inter"
-              >
-                Explore All Services <Layers className="w-4 h-4" />
-              </Link>
-            </div>
-
-            {/* Service Supports */}
-            <div className="flex flex-wrap items-center gap-3 pt-6 border-t border-white/10 w-fit">
-              <span className="text-xs text-gray-500 uppercase tracking-widest font-bold font-inter">This Service Supports</span>
-              <div className="flex flex-wrap items-center gap-3">
+              {/* Tags Row */}
+              <div className="flex flex-wrap gap-2.5 pt-2">
                 {[
-                  { name: 'VYOMORA', logo: '/vyomora.png' },
-                  { name: 'OCTASVERSE', logo: '/octas_freelancing.png' }
-                ].map((s, idx) => (
-                  <div key={idx} className="flex items-center gap-2 px-3 py-1 rounded-xl bg-white/5 border border-white/10">
-                    <Image src={s.logo} alt={s.name} width={16} height={16} className="object-contain rounded-full" />
-                    <span className="text-[10px] font-extrabold tracking-wider font-montserrat">{s.name}</span>
-                  </div>
-                ))}
+                  { label: 'More Visibility', icon: Eye },
+                  { label: 'Quality Leads', icon: Users },
+                  { label: 'Stronger Brands', icon: Award },
+                  { label: 'Higher ROI', icon: Zap }
+                ].map((tag, idx) => {
+                  const TagIcon = tag.icon;
+                  return (
+                    <span key={idx} className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-xs font-medium text-gray-300">
+                      <TagIcon className="w-3.5 h-3.5 text-[#ff5c00]" />
+                      {tag.label}
+                    </span>
+                  );
+                })}
               </div>
-            </div>
+              
+              {/* Action Buttons */}
+              <div className="flex flex-wrap gap-4 pt-4">
+                <Link 
+                  href="/book-consultation"
+                  className="px-6 py-3.5 bg-[#ff5c00] hover:bg-[#e05200] text-white font-bold rounded-xl text-sm transition-all flex items-center gap-2 cursor-pointer min-h-[44px]"
+                >
+                  Get Free Consultation <ArrowRight className="w-4 h-4" />
+                </Link>
+                <Link 
+                  href="/services" 
+                  className="px-6 py-3.5 border border-white/10 hover:bg-white/5 text-white font-bold rounded-xl text-sm transition-all flex items-center justify-center gap-2 min-h-[44px] font-inter"
+                >
+                  Explore All Services <Layers className="w-4 h-4" />
+                </Link>
+              </div>
+
+              {/* Service Supports */}
+              <div className="flex flex-wrap items-center gap-3 pt-6 border-t border-white/10 w-fit">
+                <span className="text-xs text-gray-500 uppercase tracking-widest font-bold font-inter">This Service Supports</span>
+                <div className="flex flex-wrap items-center gap-3">
+                  {[
+                    { name: 'VYOMORA', logo: '/vyomora.png' },
+                    { name: 'OCTASVERSE', logo: '/octas_freelancing.png' }
+                  ].map((s, idx) => (
+                    <div key={idx} className="flex items-center gap-2 px-3 py-1 rounded-xl bg-white/5 border border-white/10">
+                      <Image src={s.logo} alt={s.name} width={16} height={16} className="object-contain rounded-full" />
+                      <span className="text-[10px] font-extrabold tracking-wider font-montserrat">{s.name}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </motion.div>
+          </div>
+
+          {/* Right Column: Hero Image */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, ease: 'easeOut', delay: 0.15 }}
+            className="lg:col-span-5 relative w-full aspect-[4/3] sm:aspect-square max-w-[500px] mx-auto rounded-3xl overflow-hidden border border-white/10 shadow-[0_0_50px_rgba(255,92,0,0.15)] group"
+          >
+            <Image
+              src="/digital_marketing_hero.jpg"
+              alt="Digital Marketing & Brand Growth"
+              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+              width={600}
+              height={600}
+              priority
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent pointer-events-none" />
           </motion.div>
         </div>
-
       </header>
 
       {/* ─── 3. What We Do Section (Dark Background) ─────────────────────────── */}

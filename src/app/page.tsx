@@ -503,13 +503,10 @@ export default function HomePage() {
 
             {/* Technology Wireframe Globe */}
             <div className="absolute inset-[10%] pointer-events-none select-none z-0">
-              <Image
+              <img
                 alt="OCTADECENT global technology representation"
                 className="w-full h-full object-contain animate-float"
                 src="/home.png"
-                width={400}
-                height={400}
-                priority
               />
             </div>
 
