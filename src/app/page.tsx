@@ -8,8 +8,7 @@ import { useState } from 'react';
 import {
   ArrowRight, CheckCircle, XCircle, ChevronRight,
   ShoppingCart, Globe, Smartphone, Cpu, TrendingUp, Bolt,
-  Rocket, Target, ShieldCheck, Lightbulb, X, ExternalLink, Mail,
-  Briefcase, Users, Palette, Layers, Calendar
+  Rocket, Target, ShieldCheck, Lightbulb, X, ExternalLink, Mail
 } from 'lucide-react';
 import AnimatedCounter from '@/components/AnimatedCounter';
 import PartnerCard from '@/components/PartnerCard';
@@ -20,22 +19,27 @@ const EcosystemSection = dynamic(() => import('@/components/EcosystemSection'), 
   loading: () => <div className="h-[400px] w-full" aria-hidden="true" />,
 });
 
-interface PartnerItem {
-  logo: string;
-  name: string;
-  tagline: string;
-  shortSummary: string;
-  description: string;
-  services: string[];
-  partnershipValue: string;
-  ctaText: string;
-  ctaHref: string;
-  vision?: string;
-  closingStatement?: string;
-  coreFeatures?: { emoji: string; text: string }[];
-}
-
-const partnersData: PartnerItem[] = [
+const partnersData = [
+  {
+    logo: '/dropshipping.jpg',
+    name: 'Dropshipping',
+    tagline: 'Global Products. Limitless Reach.',
+    shortSummary: 'Helping businesses source, sell, and deliver products worldwide through efficient dropshipping and fulfillment solutions.',
+    description: 'Dropshipping is a modern e-commerce fulfillment model that enables businesses to sell products without maintaining physical inventory. By connecting suppliers, logistics partners, and online stores, Dropshipping provides a scalable and cost-effective way to launch and grow online businesses globally.',
+    services: [
+      'Global Product Sourcing',
+      'Supplier Network Access',
+      'Order Fulfillment',
+      'Worldwide Shipping',
+      'E-Commerce Support',
+      'Product Research',
+      'Store Integration',
+      'Logistics Management'
+    ],
+    partnershipValue: 'Through this partnership, OCTADECENT helps businesses leverage reliable sourcing, efficient fulfillment, and global shipping solutions to expand their reach and accelerate growth in the e-commerce industry.',
+    ctaText: 'Explore Partner',
+    ctaHref: ''
+  },
   {
     logo: '/vyomora.png',
     name: 'Vyomora',
@@ -55,98 +59,6 @@ const partnersData: PartnerItem[] = [
     ctaHref: ''
   },
   {
-    logo: '/1000156561.png',
-    name: 'TuwiTuwi',
-    tagline: 'Content Creation & Media Production',
-    shortSummary: 'TuwiTuwi specializes in high-impact video editing, motion graphics design, and digital storytelling to maximize brand audience engagement.',
-    description: 'TuwiTuwi specializes in creative content production, video editing, visual storytelling, and digital media solutions that help brands communicate effectively with their audiences.',
-    services: [
-      'Video Editing',
-      'Motion Graphics',
-      'Content Creation',
-      'Digital Storytelling',
-      'Social Media Content'
-    ],
-    partnershipValue: 'Through this partnership, brands gain access to high-quality creative media solutions that increase engagement and strengthen brand visibility.',
-    ctaText: 'Explore Partner',
-    ctaHref: ''
-  },
-  {
-    logo: '/octas_freelancing.png',
-    name: 'Octasverse',
-    tagline: 'Freelancing & Technology Solutions',
-    shortSummary: 'Octas Freelancing connects global enterprises with top-tier professional talent in software engineering, mobile development, design, and automation solutions.',
-    description: 'Octas Freelancing connects businesses with talented professionals across technology, design, development, marketing, and creative services.',
-    services: [
-      'Web Development',
-      'Mobile App Development',
-      'UI/UX Design',
-      'AI & Automation',
-      'Video Editing',
-      'Digital Marketing'
-    ],
-    partnershipValue: 'This collaboration provides clients access to a diverse network of professionals capable of delivering end-to-end digital solutions.',
-    ctaText: 'Explore Partner',
-    ctaHref: ''
-  },
-  {
-    logo: '/1000156535.png',
-    name: 'Xbaex',
-    tagline: 'Fashion & Lifestyle',
-    shortSummary: 'Xbaex is a trendy fashion and lifestyle brand delivering curated high-quality products and interactive digital shopping experiences.',
-    description: 'Xbaex is a fashion and lifestyle brand committed to delivering trendy, stylish, and high-quality products designed for modern consumers. The brand focuses on empowering confidence through fashion and innovation.',
-    services: [
-      'Fashion Products',
-      'Lifestyle Accessories',
-      'Trend-Based Collections',
-      'Brand Experiences',
-      'Customer Engagement'
-    ],
-    partnershipValue: 'OCTADECENT collaborates with Xbaex to strengthen digital presence, customer reach, and innovative shopping experiences.',
-    ctaText: 'Explore Partner',
-    ctaHref: ''
-  },
-  {
-    logo: '/1000156533.png',
-    name: 'Whizziness',
-    tagline: 'E-Commerce & Online Retail',
-    shortSummary: 'Whizziness is an innovative retail platform offering an optimized e-commerce marketplace focused on premium customer shopping experiences.',
-    description: 'Whizziness is an innovative e-commerce platform dedicated to providing customers with a seamless, secure, and convenient shopping experience. The platform focuses on quality products, customer satisfaction, and digital commerce excellence.',
-    services: [
-      'Online Shopping',
-      'Product Marketplace',
-      'Customer Experience Solutions',
-      'Digital Commerce',
-      'Retail Innovation'
-    ],
-    partnershipValue: 'Through this collaboration, OCTADECENT supports Whizziness with technology, branding, and digital growth solutions to enhance customer engagement and business expansion.',
-    ctaText: 'Explore Partner',
-    ctaHref: ''
-  },
-  {
-    logo: '/rudracollections.jpg',
-    name: 'RudraCollections',
-    tagline: 'Joyful Essentials for Every Childhood.',
-    shortSummary: 'A trusted destination for toys, kids\' products, apparel, and accessories designed to bring joy, comfort, and creativity to children.',
-    description: 'Rudra Collections offers a wide range of toys, kids\' essentials, apparel, and accessories that combine fun, quality, and creativity for growing children.',
-    services: [
-      'Toys & Games',
-      'Kids Apparel',
-      'Baby Essentials',
-      'Kids Accessories'
-    ],
-    partnershipValue: 'Through this partnership, Rudra Collections helps families access quality products that support learning, creativity, and everyday childhood experiences.',
-    ctaText: 'Explore Partner',
-    ctaHref: '',
-    closingStatement: 'Growing Smiles, One Product at a Time.',
-    coreFeatures: [
-      { emoji: '🧸', text: 'Toys & Games' },
-      { emoji: '👕', text: 'Kids Apparel' },
-      { emoji: '🎨', text: 'Creative Learning' },
-      { emoji: '⭐', text: 'Safe & Quality Products' }
-    ]
-  },
-  {
     logo: '/infinity_ideas.jpg',
     name: 'InfinityIdeasDCT',
     tagline: 'Education, Innovation & Skill Development',
@@ -160,69 +72,6 @@ const partnersData: PartnerItem[] = [
       'Professional Training'
     ],
     partnershipValue: 'Our collaboration enables students and professionals to access technology-driven learning opportunities and career growth resources.',
-    ctaText: 'Explore Partner',
-    ctaHref: ''
-  },
-  {
-    logo: '/xoxorentals.jpg',
-    name: 'XOXORentals',
-    tagline: 'All Types of Rentals at One Place.',
-    shortSummary: 'A complete rental platform offering vehicles, event setups, equipment, properties, furniture, and more through flexible and affordable rental solutions.',
-    description: 'XOXO Rentals provides convenient and affordable rental services for individuals, businesses, and events. From vehicles and properties to equipment and party essentials, we make renting simple and reliable.',
-    services: [
-      'Vehicle Rentals',
-      'Event Rentals',
-      'Equipment Rentals',
-      'Property Rentals',
-      'Furniture Rentals',
-      'Appliance Rentals'
-    ],
-    partnershipValue: 'Through this partnership, XOXO Rentals helps customers access reliable rental solutions for personal, business, and event needs without the burden of ownership.',
-    ctaText: 'Explore Partner',
-    ctaHref: '',
-    closingStatement: 'Rent It. Love It. XOXO It.',
-    coreFeatures: [
-      { emoji: '🚗', text: 'Vehicle Rentals' },
-      { emoji: '🏠', text: 'Property Rentals' },
-      { emoji: '🎉', text: 'Event Rentals' },
-      { emoji: '🛠️', text: 'Equipment Rentals' }
-    ]
-  },
-  
-  {
-    logo: '/1000156538.png',
-    name: 'RevertedAI',
-    tagline: 'Artificial Intelligence & Automation',
-    shortSummary: 'RevertedAI builds custom machine learning models, predictive analytics tools, and automated workflows to optimize complex corporate operations.',
-    description: 'RevertedAI develops advanced AI-driven solutions that help businesses improve efficiency, automate operations, and make smarter decisions through intelligent technologies.',
-    services: [
-      'Artificial Intelligence',
-      'Machine Learning',
-      'Business Automation',
-      'Predictive Analytics',
-      'AI Consulting'
-    ],
-    partnershipValue: 'OCTADECENT collaborates with RevertedAI to bring cutting-edge AI and automation solutions to clients across various industries.',
-    ctaText: 'Explore Partner',
-    ctaHref: ''
-  },
-  {
-    logo: '/dropshipping.jpg',
-    name: 'Dropshipping',
-    tagline: 'Global Products. Limitless Reach.',
-    shortSummary: 'Helping businesses source, sell, and deliver products worldwide through efficient dropshipping and fulfillment solutions.',
-    description: 'Dropshipping is a modern e-commerce fulfillment model that enables businesses to sell products without maintaining physical inventory. By connecting suppliers, logistics partners, and online stores, Dropshipping provides a scalable and cost-effective way to launch and grow online businesses globally.',
-    services: [
-      'Global Product Sourcing',
-      'Supplier Network Access',
-      'Order Fulfillment',
-      'Worldwide Shipping',
-      'E-Commerce Support',
-      'Product Research',
-      'Store Integration',
-      'Logistics Management'
-    ],
-    partnershipValue: 'Through this partnership, OCTADECENT helps businesses leverage reliable sourcing, efficient fulfillment, and global shipping solutions to expand their reach and accelerate growth in the e-commerce industry.',
     ctaText: 'Explore Partner',
     ctaHref: ''
   },
@@ -295,6 +144,58 @@ const partnersData: PartnerItem[] = [
     ctaHref: ''
   },
   {
+    logo: '/free.png',
+    name: 'OctasFreelancing',
+    tagline: 'Freelancing & Technology Solutions',
+    shortSummary: 'Octas Freelancing connects global enterprises with top-tier professional talent in software engineering, mobile development, design, and automation solutions.',
+    description: 'Octas Freelancing connects businesses with talented professionals across technology, design, development, marketing, and creative services.',
+    services: [
+      'Web Development',
+      'Mobile App Development',
+      'UI/UX Design',
+      'AI & Automation',
+      'Video Editing',
+      'Digital Marketing'
+    ],
+    partnershipValue: 'This collaboration provides clients access to a diverse network of professionals capable of delivering end-to-end digital solutions.',
+    ctaText: 'Explore Partner',
+    ctaHref: ''
+  },
+  {
+    logo: '/1000156533.png',
+    name: 'Whizziness',
+    tagline: 'E-Commerce & Online Retail',
+    shortSummary: 'Whizziness is an innovative retail platform offering an optimized e-commerce marketplace focused on premium customer shopping experiences.',
+    description: 'Whizziness is an innovative e-commerce platform dedicated to providing customers with a seamless, secure, and convenient shopping experience. The platform focuses on quality products, customer satisfaction, and digital commerce excellence.',
+    services: [
+      'Online Shopping',
+      'Product Marketplace',
+      'Customer Experience Solutions',
+      'Digital Commerce',
+      'Retail Innovation'
+    ],
+    partnershipValue: 'Through this collaboration, OCTADECENT supports Whizziness with technology, branding, and digital growth solutions to enhance customer engagement and business expansion.',
+    ctaText: 'Explore Partner',
+    ctaHref: ''
+  },
+  {
+    logo: '/1000156535.png',
+    name: 'XBAEX',
+    tagline: 'Fashion & Lifestyle',
+    shortSummary: 'XBAEX is a trendy fashion and lifestyle brand delivering curated high-quality products and interactive digital shopping experiences.',
+    description: 'XBAEX is a fashion and lifestyle brand committed to delivering trendy, stylish, and high-quality products designed for modern consumers. The brand focuses on empowering confidence through fashion and innovation.',
+    services: [
+      'Fashion Products',
+      'Lifestyle Accessories',
+      'Trend-Based Collections',
+      'Brand Experiences',
+      'Customer Engagement'
+    ],
+    partnershipValue: 'OCTADECENT collaborates with XBAEX to strengthen digital presence, customer reach, and innovative shopping experiences.',
+    ctaText: 'Explore Partner',
+    ctaHref: ''
+  },
+  {
     logo: '/1000156536.png',
     name: 'Eurekatobeas',
     tagline: 'Innovation & Problem Solving',
@@ -328,9 +229,72 @@ const partnersData: PartnerItem[] = [
     ctaText: 'Explore Partner',
     ctaHref: ''
   },
-  
   {
-    logo: '/dotfeelz.jpeg',
+    logo: '/1000156538.png',
+    name: 'RevertedAI',
+    tagline: 'Artificial Intelligence & Automation',
+    shortSummary: 'RevertedAI builds custom machine learning models, predictive analytics tools, and automated workflows to optimize complex corporate operations.',
+    description: 'RevertedAI develops advanced AI-driven solutions that help businesses improve efficiency, automate operations, and make smarter decisions through intelligent technologies.',
+    services: [
+      'Artificial Intelligence',
+      'Machine Learning',
+      'Business Automation',
+      'Predictive Analytics',
+      'AI Consulting'
+    ],
+    partnershipValue: 'OCTADECENT collaborates with RevertedAI to bring cutting-edge AI and automation solutions to clients across various industries.',
+    ctaText: 'Explore Partner',
+    ctaHref: ''
+  },
+  {
+    logo: '/1000156561.png',
+    name: 'TuwiTuwi',
+    tagline: 'Content Creation & Media Production',
+    shortSummary: 'TuwiTuwi specializes in high-impact video editing, motion graphics design, and digital storytelling to maximize brand audience engagement.',
+    description: 'TuwiTuwi specializes in creative content production, video editing, visual storytelling, and digital media solutions that help brands communicate effectively with their audiences.',
+    services: [
+      'Video Editing',
+      'Motion Graphics',
+      'Content Creation',
+      'Digital Storytelling',
+      'Social Media Content'
+    ],
+    partnershipValue: 'Through this partnership, brands gain access to high-quality creative media solutions that increase engagement and strengthen brand visibility.',
+    ctaText: 'Explore Partner',
+    ctaHref: ''
+  },
+  {
+    logo: '/fruitbowl.jpg',
+    name: 'FruitBowl',
+    tagline: 'Good Fruits. Good Health. Good Life.',
+    shortSummary: 'Providing fresh, nutritious, and high-quality fruits that promote healthy living, wellness, and a balanced lifestyle.',
+    description: 'Octadecent Fruit Bowl is dedicated to promoting healthier lifestyles through fresh, carefully selected, and nutrient-rich fruits. Our mission is to make healthy eating simple, accessible, and enjoyable while encouraging wellness through natural nutrition.',
+    services: [
+      'Fresh Fruit Supply',
+      'Premium Fruit Collections',
+      'Healthy Lifestyle Products',
+      'Corporate Fruit Packages',
+      'Event Fruit Arrangements',
+      'Wellness & Nutrition Support',
+      'Customized Fruit Hampers',
+      'Seasonal Fruit Selections'
+    ],
+    partnershipValue: 'Through this partnership, OCTADECENT Fruit Bowl promotes health, wellness, and sustainable living by delivering premium-quality fruits and nutrition-focused solutions to individuals, families, and businesses.',
+    ctaText: 'Explore Partner',
+    ctaHref: '',
+    vision: 'To inspire healthier communities by making fresh, nutritious fruits a daily part of every lifestyle.',
+    closingStatement: 'Eat Fresh. Live Well.',
+    coreFeatures: [
+      { emoji: '🍎', text: 'Fresh & Natural Fruits' },
+      { emoji: '💪', text: 'Rich in Nutrients' },
+      { emoji: '🛡️', text: 'Immunity Support' },
+      { emoji: '❤️', text: 'Healthy Lifestyle Choices' },
+      { emoji: '🌱', text: 'Fresh & Pure Products' },
+      { emoji: '🚚', text: 'Reliable Delivery Services' }
+    ]
+  },
+  {
+    logo: '/dotfeelz.jpg',
     name: 'DotFeelz',
     tagline: 'Healthy Sips. Better Living.',
     shortSummary: 'Refreshing, wellness-focused beverages designed to support hydration, energy, and a healthier lifestyle.',
@@ -353,49 +317,68 @@ const partnersData: PartnerItem[] = [
     ]
   },
   {
-  logo: '/ths.png',
-  name: 'Thriftora',
-  tagline: 'Every Item Deserves a Second Chance',
-  shortSummary:
-    'A trusted marketplace for buying and selling quality second-hand products across fashion, furniture, electronics, books, home décor, and more.',
-
-  description:
-    'Thriftora is an all-in-one thrift marketplace where pre-loved items find a new home. We make sustainable shopping simple by connecting buyers and sellers of quality second-hand products. From fashion and furniture to electronics, books, collectibles, home décor, and lifestyle essentials, Thriftora helps you save money, reduce waste, and give every item a second life.',
-
-  services: [
-    'Thrift Fashion',
-    'Second-Hand Furniture',
-    'Used Electronics',
-    'Books & Stationery',
-    'Home Décor',
-    'Kitchen Essentials',
-    'Bags & Accessories',
-    'Footwear Collection',
-    'Vintage & Collectibles',
-    'Buy & Sell Marketplace'
-  ],
-
-  partnershipValue:
-    'Thriftora empowers sustainable living by making quality pre-loved products affordable, accessible, and reusable while promoting a circular economy.',
-
-  ctaText: 'Explore Partner',
-  ctaHref: '',
-
-  closingStatement:
-    'Shop Smart. Save More. Give Every Item a Second Life.',
-
-  coreFeatures: [
-    { emoji: '👕', text: 'Fashion' },
-    { emoji: '🛋️', text: 'Furniture' },
-    { emoji: '💻', text: 'Electronics' },
-    { emoji: '📚', text: 'Books' },
-    { emoji: '👜', text: 'Accessories' },
-    { emoji: '🌱', text: 'Sustainable Shopping' }
-  ]
-}
+    logo: '/rudracollections.jpg',
+    name: 'RudraCollections',
+    tagline: 'Joyful Essentials for Every Childhood.',
+    shortSummary: 'A trusted destination for toys, kids\' products, apparel, and accessories designed to bring joy, comfort, and creativity to children.',
+    description: 'Rudra Collections offers a wide range of toys, kids\' essentials, apparel, and accessories that combine fun, quality, and creativity for growing children.',
+    services: [
+      'Toys & Games',
+      'Kids Apparel',
+      'Baby Essentials',
+      'Kids Accessories'
+    ],
+    partnershipValue: 'Through this partnership, Rudra Collections helps families access quality products that support learning, creativity, and everyday childhood experiences.',
+    ctaText: 'Explore Partner',
+    ctaHref: '',
+    closingStatement: 'Growing Smiles, One Product at a Time.',
+    coreFeatures: [
+      { emoji: '🧸', text: 'Toys & Games' },
+      { emoji: '👕', text: 'Kids Apparel' },
+      { emoji: '🎨', text: 'Creative Learning' },
+      { emoji: '⭐', text: 'Safe & Quality Products' }
+    ]
+  },
+  {
+    logo: '/xoxorentals.jpg',
+    name: 'XOXORentals',
+    tagline: 'All Types of Rentals. One Place.',
+    shortSummary: 'A complete rental platform offering vehicles, event setups, equipment, properties, furniture, and more through flexible and affordable rental solutions.',
+    description: 'XOXO Rentals provides convenient and affordable rental services for individuals, businesses, and events. From vehicles and properties to equipment and party essentials, we make renting simple and reliable.',
+    services: [
+      'Vehicle Rentals',
+      'Event Rentals',
+      'Equipment Rentals',
+      'Property Rentals',
+      'Furniture Rentals',
+      'Appliance Rentals'
+    ],
+    partnershipValue: 'Through this partnership, XOXO Rentals helps customers access reliable rental solutions for personal, business, and event needs without the burden of ownership.',
+    ctaText: 'Explore Partner',
+    ctaHref: '',
+    closingStatement: 'Rent It. Love It. XOXO It.',
+    coreFeatures: [
+      { emoji: '🚗', text: 'Vehicle Rentals' },
+      { emoji: '🏠', text: 'Property Rentals' },
+      { emoji: '🎉', text: 'Event Rentals' },
+      { emoji: '🛠️', text: 'Equipment Rentals' }
+    ]
+  }
 ];
 
+interface TrustStat {
+  endValue: number;
+  decimals?: number;
+  suffix: string;
+  label: string;
+}
 
+const trustStats: TrustStat[] = [
+  { endValue: partnersData.length, suffix: '+', label: 'Strategic Partnerships' },
+  { endValue: 100, suffix: '+', label: 'Global Businesses' },
+  { endValue: 100.0, decimals: 1, suffix: '%', label: 'Infrastructure Uptime' },
+  { endValue: 2, suffix: 'B+', label: 'Annual Processing' },
+];
 
 interface BentoItem {
   icon: any;
@@ -405,11 +388,11 @@ interface BentoItem {
 }
 
 const bentoItems: BentoItem[] = [
-  { icon: ShoppingCart, title: 'E-Commerce', description: 'Launch high-conversion storefronts. From boutique brands to global enterprises, our e-commerce division provides the checkout speed and reliability required to win in modern markets.', href: '/ecommerce-development' },
+  { icon: ShoppingCart, title: 'E-Commerce', description: 'Launch high-conversion storefronts. From boutique brands to global enterprises, our e-commerce venture provides the checkout speed and reliability required to win in modern markets.', href: '/ecommerce-development' },
   { icon: Globe, title: 'Website Development', description: 'Beyond aesthetics. We build high-performance web applications and corporate sites engineered for SEO, speed, and deep integration with your entire business backend.', href: '/web-development' },
-  { icon: Smartphone, title: 'Mobile Apps', description: 'Native iOS and Android experiences that keep your brand in your customer\'s pocket. Our mobile division focuses on retention-first design and seamless utility.', href: '/mobile-app-development' },
+  { icon: Smartphone, title: 'Mobile Apps', description: 'Native iOS and Android experiences that keep your brand in your customer\'s pocket. Our mobile venture focuses on retention-first design and seamless utility.', href: '/mobile-app-development' },
   { icon: Cpu, title: 'AI Automation', description: 'Replace manual tasks with intelligent workflows. Our AI suite automates everything from inventory management to customer support, reducing overhead by up to 60%.', href: '/ai-solutions' },
-  { icon: TrendingUp, title: 'Digital Marketing', description: 'Data-driven growth. Our marketing division uses real-time commerce data to fuel precision-targeted campaigns that maximize your Return on Ad Spend (ROAS).', href: '/digital-marketing' },
+  { icon: TrendingUp, title: 'Digital Marketing', description: 'Data-driven growth. Our marketing venture uses real-time commerce data to fuel precision-targeted campaigns that maximize your Return on Ad Spend (ROAS).', href: '/digital-marketing' },
   { icon: Bolt, title: 'Quick Commerce', description: 'The future of delivery. Enable 15-minute fulfillment through our hyperlocal logistics engine, connecting your inventory directly to the local customer\'s doorstep.', href: '/ecommerce-development' },
 ];
 
@@ -427,20 +410,10 @@ const growthStats: GrowthStat[] = [
   { endValue: 18, suffix: '', label: 'Integrated Companies' },
 ];
 
-const orbitNodes = [
-  { line1: 'TECHNOLOGY', line2: '& AI SOLUTIONS', icon: Cpu, offset: 'top-[5%] left-[50%] -translate-x-1/2 -translate-y-1/2', alignLeft: false },
-  { line1: 'DIGITAL', line2: 'MARKETING', icon: TrendingUp, offset: 'top-[17%] left-[82%] -translate-x-1/2 -translate-y-1/2', alignLeft: false },
-  { line1: 'COMMERCE', line2: '& E-COMMERCE', icon: ShoppingCart, offset: 'top-[50%] left-[95%] -translate-x-1/2 -translate-y-1/2', alignLeft: false },
-  { line1: 'AUTOMATION', line2: '& INNOVATION', icon: Target, offset: 'top-[83%] left-[82%] -translate-x-1/2 -translate-y-1/2', alignLeft: false },
-  { line1: 'DESIGN', line2: '& BRANDING', icon: Palette, offset: 'top-[95%] left-[50%] -translate-x-1/2 -translate-y-1/2', alignLeft: false },
-  { line1: 'CONSULTING', line2: '& STRATEGY', icon: Briefcase, offset: 'top-[83%] left-[18%] -translate-x-1/2 -translate-y-1/2', alignLeft: true },
-  { line1: 'TALENT', line2: '& FREELANCING', icon: Users, offset: 'top-[50%] left-[5%] -translate-x-1/2 -translate-y-1/2', alignLeft: true },
-  { line1: 'GLOBAL TRADE', line2: '& VENTURES', icon: Layers, offset: 'top-[17%] left-[18%] -translate-x-1/2 -translate-y-1/2', alignLeft: true }
-];
-
 export default function HomePage() {
   const [hoveredBentoIndex, setHoveredBentoIndex] = useState<number | null>(null);
   const [selectedPartnerIndex, setSelectedPartnerIndex] = useState<number | null>(null);
+  const [isCollaborationOpen, setIsCollaborationOpen] = useState(false);
 
   return (
     <div className="relative min-h-screen overflow-hidden bg-[#050816] text-[#e3e2e2]">
@@ -448,126 +421,143 @@ export default function HomePage() {
       {/* ============================================
           1. HERO SECTION
           ============================================ */}
-      <section className="relative min-h-0 lg:min-h-screen flex flex-col items-center justify-center pt-24 pb-12 sm:pt-28 sm:pb-16 lg:pt-32 lg:pb-24 overflow-hidden px-4 sm:px-6">
+      <section className="relative min-h-screen flex flex-col items-center justify-center pt-24 sm:pt-28 pb-12 sm:pb-20 overflow-hidden px-4 sm:px-6">
         {/* Background Grid */}
         <div className="absolute inset-0 hero-grid pointer-events-none" aria-hidden="true" />
         {/* Background blob — hidden on small mobile to avoid overflow */}
         <div className="absolute top-1/4 left-1/4 w-[300px] sm:w-[500px] h-[300px] sm:h-[500px] bg-primary/5 blur-[100px] sm:blur-[150px] rounded-full pointer-events-none hidden xs:block" aria-hidden="true" />
 
-        <div className="relative z-10 w-full max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center px-4 sm:px-6">
-          
-          {/* Left Column: Text Content & Stats (60%) */}
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, ease: 'easeOut' }}
-            className="lg:col-span-7 flex flex-col text-left items-start w-full"
-          >
-            <h1 className="font-montserrat font-extrabold text-white text-left tracking-tight leading-tight space-y-2 mb-6" style={{ fontSize: 'clamp(1.8rem, 4vw, 3.2rem)' }}>
-              <span className="block text-white">WE BUILD BUSINESSES.</span>
-              <span className="block text-white">WE SCALE FUTURES.</span>
-              <span className="block">WE CREATE <span className="text-[#ff5c00]">IMPACT.</span></span>
-            </h1>
+        {/* Hero Card Container */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.8, ease: 'easeOut' }}
+          className="hero-card relative w-full max-w-6xl mx-auto py-12 sm:py-20 md:py-28 rounded-[24px] sm:rounded-[40px] md:rounded-[60px] border border-white/10 overflow-hidden bg-gradient-to-b from-white/[0.02] to-transparent backdrop-blur-sm"
+        >
 
-            <p className="font-inter text-sm sm:text-base md:text-lg text-[#bab8b7] text-left max-w-xl leading-relaxed mb-8">
-              OCTADECENT is a global business ecosystem delivering end-to-end technology, commerce, AI, automation, digital marketing, and business growth solutions through one connected platform.
-            </p>
+
+          {/* Hero Content */}
+          <div className="relative z-10 flex flex-col items-center text-center max-w-4xl mx-auto px-4 sm:px-6">
+            {/* Title: All-in-one Company & Quick Commerce Solutions */}
+            <motion.h1
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.15 }}
+              className="font-montserrat font-bold text-white mb-6 max-w-4xl text-center"
+              style={{
+                fontSize: 'clamp(1.6rem, 4.0vw, 3.0rem)',
+                lineHeight: '1.2'
+              }}
+            >
+              All-in-One <span className="text-[#ff5c00] whitespace-nowrap">E-commerce</span><br />&<br />Quick Commerce Solutions
+            </motion.h1>
+
+            {/* Separator design */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.6, delay: 0.25 }}
+              className="flex items-center gap-4 mb-6 w-full max-w-[200px]"
+            >
+              <div className="h-[1px] bg-gradient-to-r from-transparent to-[#ff5c00]/60 flex-1" />
+              <span className="text-[#ff5c00] text-xs">◆</span>
+              <div className="h-[1px] bg-gradient-to-l from-transparent to-[#ff5c00]/60 flex-1" />
+            </motion.div>
+
+            {/* Paragraph Description */}
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              className="font-inter text-sm sm:text-base md:text-lg text-[#bab8b7] mb-8 sm:mb-10 max-w-2xl leading-relaxed"
+            >
+              Empowering businesses with scalable, reliable, and future-ready commerce infrastructure.
+            </motion.p>
 
             {/* CTAs */}
-            <div className="flex flex-col sm:flex-row items-center justify-start gap-4 mb-12 w-full sm:w-auto">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.35 }}
+              className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-6 w-full max-w-sm sm:max-w-none mb-12 sm:mb-16"
+            >
               <Link
                 href="/services"
-                className="w-full sm:w-auto px-8 py-3.5 bg-gradient-to-r from-[#ff5c00] to-[#e05200] hover:from-[#e05200] hover:to-[#ff5c00] text-white rounded-xl font-inter font-bold orange-glow hover:scale-105 transition-all text-center flex items-center justify-center gap-2 cursor-pointer text-sm sm:text-base shadow-[0_4px_20px_rgba(255,92,0,0.3)]"
+                className="w-full sm:w-auto px-8 py-4 bg-gradient-to-r from-[#ff5c00] to-[#e05200] hover:from-[#e05200] hover:to-[#ff5c00] text-white rounded-2xl font-inter font-bold orange-glow hover:scale-105 transition-all text-center flex items-center justify-center gap-2 cursor-pointer text-sm sm:text-base shadow-[0_4px_20px_rgba(255,92,0,0.3)]"
               >
-                Explore Our Services <ArrowRight className="w-4 h-4" />
+                Explore Services <ArrowRight className="w-4 h-4" />
               </Link>
               <Link
                 href="/book-consultation"
-                className="w-full sm:w-auto px-8 py-3.5 border border-[#ff5c00] hover:bg-[#ff5c00]/10 text-white rounded-xl font-inter font-bold hover:scale-105 transition-all text-center flex items-center justify-center gap-2 cursor-pointer text-sm sm:text-base"
+                className="w-full sm:w-auto px-8 py-4 border border-[#ff5c00]/40 bg-transparent hover:bg-[#ff5c00]/10 text-white rounded-2xl font-inter font-bold hover:scale-105 transition-all text-center flex items-center justify-center gap-2 cursor-pointer text-sm sm:text-base"
               >
-                Partner With Us
+                Consult a Strategist <ArrowRight className="w-4 h-4" />
               </Link>
-            </div>
-          </motion.div>
+            </motion.div>
 
-          {/* Right Column: Globe & Orbiting Divisions (40%) */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, ease: 'easeOut', delay: 0.15 }}
-            className="lg:col-span-5 relative w-full aspect-square max-w-[460px] mx-auto flex items-center justify-center pt-8 lg:pt-0"
-          >
-            {/* Background spinning circle lines */}
-            <div className="absolute inset-[15%] rounded-full border border-white/5 animate-[spin_60s_linear_infinite] pointer-events-none" />
-            <div className="absolute inset-[5%] rounded-full border border-[#ff5c00]/5 animate-[spin_40s_linear_infinite_reverse] pointer-events-none" />
-
-            {/* Technology Wireframe Globe */}
-            <div className="absolute inset-[10%] pointer-events-none select-none z-0">
-              <img
-                alt="OCTADECENT global technology representation"
-                className="w-full h-full object-contain animate-float"
-                src="/home.png"
-              />
-            </div>
-
-            {/* Central Octadecent Gold Insignia Logo */}
-            <div className="relative z-10 w-20 h-20 sm:w-24 sm:h-24 rounded-full p-[2px] bg-gradient-to-tr from-[#ff5c00] to-[#ffd700] shadow-[0_0_40px_rgba(255,92,0,0.35)] flex items-center justify-center">
-              <div className="w-full h-full bg-[#050816] rounded-full overflow-hidden flex items-center justify-center p-2.5">
-                <Image
-                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuBA-Ejw9GX39YVfLZY6_rzSHkCuoul10gUogdKujpPFixlahWW2jL_ZOXDnrjTLHlFgKHsIAJWc873fIWb8YEVelu-6TuRrfDQXvkehQd7SrbSkCQ5cXyyLw3GztkBPfDjZWw_o3wGMjeXpkZD9BqAZOHtqvC4qWlF37Y7LKJZjpwYKRD1mmcAiUFZnqJWqYiezpEpIqwt5pN6sgSB8KCV8mR284OINloeTyVCAAQI8EsppwvTSxYS_Wn6nRx_5CM0kKTN0UiX8i48"
-                  alt="OCTADECENT Gold Insignia Logo"
-                  className="w-full h-full object-contain"
-                  width={80}
-                  height={80}
-                />
+            {/* Key Values / Info Bar */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.45 }}
+              className="w-full max-w-4xl p-6 sm:p-8 rounded-[1.5rem] border border-white/10 bg-black/40 backdrop-blur-md grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 relative z-20 shadow-[0_8px_32px_0_rgba(0,0,0,0.5)]"
+            >
+              <div className="flex flex-col items-center text-center">
+                <Rocket className="w-8 h-8 text-[#ff5c00] mb-3" />
+                <span className="font-montserrat font-extrabold text-[#ffffff] text-sm sm:text-base leading-tight">18</span>
+                <span className="font-montserrat font-extrabold text-[#ffffff] text-sm sm:text-base leading-tight">Companies</span>
               </div>
-            </div>
-
-            {/* Orbiting Nodes mapping */}
-            {orbitNodes.map((node, index) => {
-              const Icon = node.icon;
-              return (
-                <div
-                  key={index}
-                  className={`absolute z-20 ${node.offset}`}
-                >
-                  <div className="flex items-center gap-2 group cursor-pointer">
-                    {node.alignLeft ? (
-                      <>
-                        <div className="hidden xs:flex flex-col text-right leading-none items-end">
-                          <span className="text-[8px] sm:text-[9px] font-montserrat font-bold text-white uppercase tracking-wider whitespace-nowrap">{node.line1}</span>
-                          <span className="text-[8px] sm:text-[9px] font-montserrat font-semibold text-[#bab8b7] uppercase tracking-wider whitespace-nowrap mt-0.5">{node.line2}</span>
-                        </div>
-                        <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-black/85 border border-[#ff5c00]/30 flex items-center justify-center text-[#ff5c00] flex-shrink-0 group-hover:bg-[#ff5c00] group-hover:text-white transition-all duration-300 shadow-[0_0_15px_rgba(255,92,0,0.15)] group-hover:shadow-[0_0_20px_rgba(255,92,0,0.35)] group-hover:scale-110">
-                          <Icon className="w-4 h-4 sm:w-4.5 sm:h-4.5" />
-                        </div>
-                      </>
-                    ) : (
-                      <>
-                        <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-black/85 border border-[#ff5c00]/30 flex items-center justify-center text-[#ff5c00] flex-shrink-0 group-hover:bg-[#ff5c00] group-hover:text-white transition-all duration-300 shadow-[0_0_15px_rgba(255,92,0,0.15)] group-hover:shadow-[0_0_20px_rgba(255,92,0,0.35)] group-hover:scale-110">
-                          <Icon className="w-4 h-4 sm:w-4.5 sm:h-4.5" />
-                        </div>
-                        <div className="hidden xs:flex flex-col text-left leading-none items-start">
-                          <span className="text-[8px] sm:text-[9px] font-montserrat font-bold text-white uppercase tracking-wider whitespace-nowrap">{node.line1}</span>
-                          <span className="text-[8px] sm:text-[9px] font-montserrat font-semibold text-[#bab8b7] uppercase tracking-wider whitespace-nowrap mt-0.5">{node.line2}</span>
-                        </div>
-                      </>
-                    )}
-                  </div>
-                </div>
-              );
-            })}
-          </motion.div>
-
-        </div>
+              <div className="flex flex-col items-center text-center border-t border-white/5 md:border-t-0 md:border-l border-white/5 pt-4 md:pt-0">
+                <Target className="w-8 h-8 text-[#ff5c00] mb-3" />
+                <span className="font-montserrat font-extrabold text-[#ffffff] text-sm sm:text-base leading-tight">One</span>
+                <span className="font-montserrat font-extrabold text-[#ffffff] text-sm sm:text-base leading-tight">Vision</span>
+              </div>
+              <div className="flex flex-col items-center text-center border-t border-white/5 md:border-t-0 md:border-l border-white/5 pt-4 md:pt-0">
+                <ShieldCheck className="w-8 h-8 text-[#ff5c00] mb-3" />
+                <span className="font-montserrat font-extrabold text-[#ffffff] text-sm sm:text-base leading-tight">Trusted</span>
+                <span className="font-montserrat font-extrabold text-[#ffffff] text-sm sm:text-base leading-tight">Solutions</span>
+              </div>
+              <div className="flex flex-col items-center text-center border-t border-white/5 md:border-t-0 md:border-l border-white/5 pt-4 md:pt-0">
+                <Lightbulb className="w-8 h-8 text-[#ff5c00] mb-3" />
+                <span className="font-montserrat font-extrabold text-[#ffffff] text-sm sm:text-base leading-tight">Innovate</span>
+                <span className="font-montserrat font-extrabold text-[#ffffff] text-sm sm:text-base leading-tight">Everyday</span>
+              </div>
+            </motion.div>
+          </div>
+        </motion.div>
       </section>
 
-
+      {/* ============================================
+          2. TRUST BAR
+          ============================================ */}
+      <section className="py-16 sm:py-24 border-y border-white/5 bg-black/60 relative z-10">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-10 md:gap-12 text-center">
+            {trustStats.map((stat, idx) => (
+              <motion.div
+                key={stat.label}
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: idx * 0.1 }}
+                className="group cursor-pointer"
+              >
+                <div className="font-montserrat font-extrabold text-3xl sm:text-4xl md:text-5xl text-primary mb-2 group-hover:scale-110 transition-transform duration-300">
+                  <AnimatedCounter end={stat.endValue} decimals={stat.decimals} suffix={stat.suffix} />
+                </div>
+                <div className="font-inter text-[10px] sm:text-[11px] font-semibold uppercase tracking-widest text-[#bab8b7]">
+                  {stat.label}
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
 
       {/* ============================================
           PARTNERED COMPANIES (PARTNERSHIP)
           ============================================ */}
-      <section className="px-4 sm:px-6 md:px-16 pt-10 sm:pt-24 pb-6 sm:pb-12 max-w-[1440px] mx-auto border-t border-white/5 flex flex-col items-center relative z-10">
+      <section className="px-4 sm:px-6 md:px-16 pt-16 sm:pt-24 pb-8 sm:pb-12 max-w-[1440px] mx-auto border-t border-white/5 flex flex-col items-center relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -583,7 +573,7 @@ export default function HomePage() {
             Partnered Companies
           </h2>
           <p className="font-inter text-[#9a9898] mt-4 max-w-3xl mx-auto leading-relaxed text-sm sm:text-base">
-            An ecosystem of innovative brands, technology, and strategic partnerships powering business growth.
+            Our growing ecosystem consists of innovative brands, technology Companies, creative platforms, and strategic collaborations. Together, we are building impactful solutions, expanding opportunities, and creating long-term value through innovation, technology, and business excellence.
           </p>
         </motion.div>
 
@@ -645,14 +635,8 @@ export default function HomePage() {
                     {/* Header */}
                     <div className="flex flex-col sm:flex-row items-center sm:items-start gap-5 text-center sm:text-left">
                       <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-full p-[2px] bg-gradient-to-tr from-[#ff5c00]/50 to-[#ff5c00]/20 flex-shrink-0">
-                        <div className="w-full h-full bg-[#050816] rounded-full overflow-hidden flex items-center justify-center">
-                          <Image src={partner.logo} alt={`${partner.name} partner logo`} className={`w-full h-full object-contain transition-transform duration-300 ${
-                            ['Octasverse', 'Thriftora'].includes(partner.name)
-                              ? 'scale-[1.35]'
-                              : ['Vyomora', 'DotFeelz', 'RevertedAI'].includes(partner.name)
-                              ? 'scale-[1.15]'
-                              : 'scale-90'
-                          }`} width={96} height={96} loading="lazy" />
+                        <div className="w-full h-full bg-white rounded-full overflow-hidden flex items-center justify-center">
+                          <Image src={partner.logo} alt={`${partner.name} partner logo`} className="w-full h-full object-contain" width={96} height={96} loading="lazy" />
                         </div>
                       </div>
                       <div className="space-y-2">
@@ -773,13 +757,259 @@ export default function HomePage() {
         )}
       </AnimatePresence>
 
+      {/* ============================================
+          FEATURED COLLABORATION (COLLABORATION)
+          ============================================ */}
+      <section className="px-4 sm:px-6 md:px-16 pt-8 sm:pt-12 pb-16 sm:pb-24 max-w-[1440px] mx-auto border-t border-white/5 flex flex-col items-center relative z-10">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-16"
+        >
+          <div className="inline-flex items-center px-4 py-1.5 rounded-full border border-[#ff5c00]/25 bg-[#ff5c00]/8 text-[#ff5c00] text-xs font-semibold uppercase tracking-widest font-inter mb-6">
+            Collaboration
+          </div>
+          <h2 className="font-montserrat font-extrabold text-white"
+            style={{ fontSize: 'clamp(1.75rem, 4vw, 2.75rem)' }}>
+            Featured Collaboration
+          </h2>
+          <p className="font-inter text-[#9a9898] mt-4 max-w-2xl mx-auto">
+            Strategic collaborations and joint initiatives driving digital innovation.
+          </p>
+        </motion.div>
 
+        <div className="w-full max-w-md mx-auto">
+          {/* Card 1: inkWoven */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="w-full h-full flex flex-col"
+          >
+            {/* Glassmorphism card with orange glow */}
+            <div className="relative w-full h-full rounded-[2rem] bg-[#0d0e0f]/60 backdrop-blur-2xl border border-white/10 shadow-[0_0_40px_rgba(255,92,0,0.15)] p-6 sm:p-8 group overflow-hidden flex flex-col items-center text-center justify-between transition-all duration-500 lg:hover:shadow-[0_0_50px_rgba(255,92,0,0.3)] lg:hover:-translate-y-1">
+              <div className="flex-grow flex flex-col items-center justify-start w-full">
+                {/* Background Glows */}
+                <div className="absolute inset-0 bg-gradient-to-br from-[#ff5c00]/10 to-[#ff9a00]/15 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" aria-hidden="true" />
+                <div className="absolute -top-20 -right-20 w-40 h-40 bg-[#ff5c00]/20 blur-[60px] rounded-full pointer-events-none" aria-hidden="true" />
+                <div className="absolute -bottom-20 -left-20 w-40 h-40 bg-[#ff9a00]/15 blur-[60px] rounded-full pointer-events-none" aria-hidden="true" />
+
+                {/* Floating writing emojis */}
+                <div className="absolute top-6 left-8 text-2xl animate-bounce" style={{ animationDuration: '3s' }}>👕</div>
+                <div className="absolute bottom-12 right-8 text-2xl animate-bounce" style={{ animationDuration: '4s', animationDelay: '1s' }}>☕</div>
+                <div className="absolute top-1/2 left-4 text-xl animate-pulse" style={{ animationDuration: '2s' }}>✨</div>
+
+                {/* Image with spinning gradient ring */}
+                <div className="relative w-28 h-28 sm:w-32 sm:h-32 mx-auto mb-6 flex-shrink-0 flex items-center justify-center">
+                  <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-[#ff5c00] via-[#ff9a00] to-[#ff5c00] animate-spin" style={{ animationDuration: '4s', padding: '3px' }}>
+                    <div className="w-full h-full bg-[#0a0a0a] rounded-full" />
+                  </div>
+                  <img
+                    src="/inkwoven.png"
+                    alt="inkWoven custom branding and creative printing showcase logo"
+                    className="absolute inset-[3px] w-[calc(100%-6px)] h-[calc(100%-6px)] object-cover rounded-full z-10"
+                  />
+                </div>
+
+                {/* Description */}
+                <h3 className="font-montserrat font-bold text-2xl text-white mb-1">inkWoven</h3>
+                <p className="font-inter text-xs text-[#ff5c00] font-semibold tracking-wide mb-3">
+                  Custom Prints. Creative Branding. Lasting Impressions.
+                </p>
+                <p className="font-inter text-sm text-[#9a9898] leading-relaxed mb-6">
+                  Premium custom printing and branding solutions for apparel, merchandise, corporate gifts, promotional products, and personalized accessories.
+                </p>
+              </div>
+              <button
+                onClick={() => setIsCollaborationOpen(true)}
+                className="mt-auto inline-flex items-center justify-center gap-2 w-full sm:w-auto px-8 py-3 rounded-xl bg-gradient-to-r from-[#ff5c00] to-[#ff8c00] hover:from-[#ff8c00] hover:to-[#ff5c00] text-white font-inter font-bold text-sm hover:scale-105 transition-all duration-300 shadow-lg relative z-20 cursor-pointer"
+              >
+                Explore Collaboration
+                <ArrowRight className="w-4 h-4" />
+              </button>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* ============================================
+          INTERACTIVE COLLABORATION MODAL (inkWoven)
+          ============================================ */}
+      <AnimatePresence>
+        {isCollaborationOpen && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-black/85 backdrop-blur-md"
+            onClick={() => setIsCollaborationOpen(false)}
+          >
+            <motion.div
+              initial={{ scale: 0.94, y: 15, opacity: 0 }}
+              animate={{ scale: 1, y: 0, opacity: 1 }}
+              exit={{ scale: 0.94, y: 15, opacity: 0 }}
+              className="relative w-full max-w-2xl bg-[#0a0d1a]/95 border border-white/10 rounded-3xl shadow-[0_24px_50px_rgba(255,92,0,0.18)] p-6 sm:p-8 md:p-10 max-h-[90vh] overflow-y-auto"
+              data-lenis-prevent
+              onClick={(e) => e.stopPropagation()}
+            >
+              {/* Close Button */}
+              <button
+                onClick={() => setIsCollaborationOpen(false)}
+                className="absolute top-4 right-4 z-20 p-2.5 rounded-full bg-white/5 hover:bg-[#ff5c00] text-white/70 hover:text-white transition-colors border border-white/10"
+                aria-label="Close modal"
+              >
+                <X className="w-5 h-5" />
+              </button>
+
+              <div className="space-y-6">
+                {/* Header */}
+                <div className="flex flex-col sm:flex-row items-center sm:items-start gap-5 text-center sm:text-left">
+                  <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-full p-[2px] bg-gradient-to-tr from-[#ff5c00]/50 to-[#ff5c00]/20 flex-shrink-0">
+                    <div className="w-full h-full bg-[#050816] rounded-full overflow-hidden flex items-center justify-center">
+                      <Image src="/inkwoven.png" alt="inkWoven custom branding and merchandise logo" className="w-full h-full object-cover" width={96} height={96} loading="lazy" />
+                    </div>
+                  </div>
+                  <div className="space-y-2">
+                    <h3 className="font-montserrat font-extrabold text-xl sm:text-2xl lg:text-3xl text-white">
+                      inkWoven
+                    </h3>
+                    <div className="flex flex-wrap items-center justify-center sm:justify-start gap-2">
+                      <span className="inline-block px-3 py-1 rounded-full text-[10px] font-semibold uppercase tracking-wider bg-[#ff5c00]/10 border border-[#ff5c00]/25 text-[#ff5c00]">
+                        Custom Printing & Brand Merchandise
+                      </span>
+                    </div>
+                  </div>
+                </div>
+
+                {/* About */}
+                <div>
+                  <h4 className="font-montserrat font-bold text-[10px] uppercase tracking-widest text-[#ff5c00] mb-2">
+                    About
+                  </h4>
+                  <p className="font-inter text-sm text-[#b5b5b5] leading-relaxed">
+                    inkWoven specializes in custom printing, branding, and personalized merchandise solutions. We help businesses, creators, and organizations strengthen their brand identity through high-quality printed products and promotional materials.
+                  </p>
+                </div>
+
+                {/* Services & Benefits Grid */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-2">
+                  <div>
+                    <h4 className="font-montserrat font-bold text-[10px] uppercase tracking-widest text-[#ff5c00] mb-3">
+                      Services
+                    </h4>
+                    <ul className="grid grid-cols-1 gap-2">
+                      {[
+                        'Custom T-Shirt Printing',
+                        'Clothing Branding',
+                        'Corporate Merchandise',
+                        'Mouse Pad Printing',
+                        'Mug Printing',
+                        'Customized Gifts',
+                        'Promotional Products',
+                        'Brand Merchandise'
+                      ].map((svc) => (
+                        <li key={svc} className="flex items-center gap-2 text-xs text-white/80">
+                          <span className="w-1.5 h-1.5 rounded-full bg-[#ff5c00]" />
+                          {svc}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                  <div>
+                    <h4 className="font-montserrat font-bold text-[10px] uppercase tracking-widest text-[#ff5c00] mb-3">
+                      Key Benefits
+                    </h4>
+                    <ul className="space-y-2">
+                      {[
+                        'High-Quality Printing',
+                        'Custom Design Solutions',
+                        'Professional Branding',
+                        'Bulk Order Support',
+                        'Fast Delivery'
+                      ].map((benefit) => (
+                        <li key={benefit} className="flex items-center gap-2 text-xs text-white/80">
+                          <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
+                          {benefit}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+
+                {/* Core Features */}
+                <div>
+                  <h4 className="font-montserrat font-bold text-[10px] uppercase tracking-widest text-[#ff5c00] mb-3">
+                    Core Features
+                  </h4>
+                  <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
+                    {[
+                      { emoji: '👕', text: 'Custom Apparel' },
+                      { emoji: '🖱️', text: 'Mouse Pads' },
+                      { emoji: '☕', text: 'Printed Mugs' },
+                      { emoji: '🎁', text: 'Customized Gifts' },
+                      { emoji: '🏢', text: 'Corporate Branding' },
+                      { emoji: '🎨', text: 'Promotional Merchandise' }
+                    ].map((feature) => (
+                      <div key={feature.text} className="flex items-center gap-2 p-2.5 rounded-xl bg-white/5 border border-white/10">
+                        <span className="text-sm">{feature.emoji}</span>
+                        <span className="text-[11px] font-inter font-semibold text-white/95">{feature.text}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Partnership Value */}
+                <div>
+                  <h4 className="font-montserrat font-bold text-[10px] uppercase tracking-widest text-[#ff5c00] mb-2">
+                    Partnership Value
+                  </h4>
+                  <p className="font-inter text-xs sm:text-sm text-[#b5b5b5] leading-relaxed">
+                    Through this partnership, inkWoven helps businesses increase brand visibility with customized merchandise, promotional products, and professionally branded materials.
+                  </p>
+                </div>
+
+                {/* Closing Statement */}
+                <div className="p-4 rounded-xl border border-white/5 bg-white/[0.02]">
+                  <blockquote className="font-inter text-xs text-white/60 italic border-l-2 border-[#ff5c00] pl-3">
+                    "Print Your Brand. Build Your Identity."
+                  </blockquote>
+                </div>
+
+                {/* Footer buttons */}
+                <div className="pt-6 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between gap-4">
+                  <div className="text-white/30 text-[11px] font-inter">
+                    Contact Info: <a href="mailto:octadecent@gmail.com" className="text-[#ff5c00] hover:underline">octadecent@gmail.com</a> | <a href="tel:+919398820561" className="text-white/60 hover:text-white transition-colors">+91 9398820561</a>
+                  </div>
+                  <div className="flex gap-3 w-full sm:w-auto justify-end">
+                    <button
+                      onClick={() => setIsCollaborationOpen(false)}
+                      className="px-5 py-2.5 rounded-xl border border-white/10 hover:bg-white/5 text-xs font-inter font-bold text-white transition-all w-full sm:w-auto cursor-pointer"
+                    >
+                      Close
+                    </button>
+                    <button
+                      onClick={() => setIsCollaborationOpen(false)}
+                      className="px-5 py-2.5 rounded-xl bg-[#ff5c00] hover:bg-[#e05200] text-xs font-inter font-bold text-white transition-all flex items-center justify-center gap-2 w-full sm:w-auto cursor-pointer"
+                    >
+                      <span>Explore Collaboration</span>
+                      <ArrowRight className="w-3.5 h-3.5" />
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
 
       {/* ============================================
           3. ABOUT SECTION
           ============================================ */}
-      <section className="pt-10 pb-4 sm:pt-24 sm:pb-12 md:pt-32 md:pb-16 max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
+      <section className="py-16 sm:py-24 md:py-32 max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 md:gap-16 lg:gap-20 items-center">
           <motion.div
             initial={{ opacity: 0, x: -30 }}
@@ -793,18 +1023,18 @@ export default function HomePage() {
             >
               Building The Future Of Business Growth
             </h2>
-            <div className="space-y-6 font-inter text-[#bab8b7] leading-relaxed">
+            <div className="space-y-5 font-inter text-sm sm:text-base md:text-lg text-[#bab8b7] leading-relaxed">
               <p>
-                <strong className="text-white font-extrabold block mb-1.5 text-base sm:text-lg tracking-tight">Build Businesses</strong>
-                <span className="text-xs sm:text-sm md:text-base text-[#9a9898]">From startups to enterprises, we engineer the systems that power sustainable business growth.</span>
+                <strong className="text-white font-semibold block mb-1">Our Mission:</strong>
+                To provide the fundamental infrastructure that enables any business to scale infinitely through connected technology and intelligent commerce.
               </p>
               <p>
-                <strong className="text-white font-extrabold block mb-1.5 text-base sm:text-lg tracking-tight">Scale Futures</strong>
-                <span className="text-xs sm:text-sm md:text-base text-[#9a9898]">We connect innovation, commerce, and technology to unlock limitless opportunities.</span>
+                <strong className="text-white font-semibold block mb-1">Our Vision:</strong>
+                To be the global operating system for modern trade, where 18 specialized Companies work in harmony to solve every business challenge.
               </p>
               <p>
-                <strong className="text-white font-extrabold block mb-1.5 text-base sm:text-lg tracking-tight">Create Impact</strong>
-                <span className="text-xs sm:text-sm md:text-base text-[#9a9898]">Our ecosystem drives measurable results, lasting partnerships, and meaningful transformation across industries.</span>
+                <strong className="text-white font-semibold block mb-1">Why OCTADECENT Exists:</strong>
+                Most agencies just build websites. We connect websites to growth. We exist to eliminate the silos between your tech, your marketing, and your logistics, creating a single, unstoppable growth engine.
               </p>
             </div>
           </motion.div>
@@ -817,13 +1047,13 @@ export default function HomePage() {
             className="glass-card p-1.5 rounded-3xl overflow-hidden shadow-2xl relative group"
           >
             <div className="absolute inset-0 bg-gradient-to-tr from-primary/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 rounded-3xl" aria-hidden="true" />
-            <div className="aspect-[1.6] bg-gradient-to-br from-[#121414] to-black rounded-2xl flex flex-col justify-center items-center text-center relative overflow-hidden">
+            <div className="aspect-square bg-gradient-to-br from-[#121414] to-black rounded-2xl flex flex-col justify-center items-center text-center relative overflow-hidden">
               <Image
-                alt="OCTADECENT core conglomerate ecosystem division diagram illustration"
+                alt="OCTADECENT unified commerce dashboard and digital strategy illustration"
                 className="w-full h-full object-cover rounded-xl group-hover:scale-105 transition-transform duration-700"
-                src="/conglomerate-core.jpg"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBYhb_JBlAb1V5Gcl_G7divfkuRlaJ72xksv6Sx8PugVUUwuf2IpWyXnQxs-YfW35c1VNlOj-SBKA7dY0LFtQlfwoJQqXSmS6iEtKVcf-80tvMFD7pEypC-w8j-EOiXnG8L_I6E2rYhaiamziJV_Zq9tExH76OQaKafxNBXCpSqtIwLvKIV9gIZwqzRgYui2fdug7dxaNFOGSG-FUMFZzrzNTwRzJvjZEMfjX5m2ZygUUbQZig8tn4mVXDOx_pCbh5-2DZ1fR9gVV0"
                 width={800}
-                height={500}
+                height={800}
                 loading="lazy"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#050816] via-transparent to-transparent opacity-40" aria-hidden="true" />
@@ -832,50 +1062,15 @@ export default function HomePage() {
         </div>
       </section>
 
-      <EcosystemSection />
-
-      {/* ============================================
-          5. DASHBOARD PREVIEW — MERCHANT OS
-          ============================================ */}
-      <section className="py-10 sm:py-24 md:py-32 bg-black/40 border-y border-white/5 relative overflow-hidden z-10">
-        <div className="absolute top-1/2 left-1/4 w-[300px] sm:w-[500px] h-[300px] sm:h-[500px] bg-primary/5 blur-[100px] sm:blur-[150px] rounded-full pointer-events-none" aria-hidden="true" />
-
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 grid lg:grid-cols-2 gap-12 md:gap-16 lg:gap-24 items-center">
-          {/* Dashboard Image */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="relative group cursor-pointer order-2 lg:order-1"
-          >
-            <div className="absolute -inset-4 sm:-inset-8 bg-primary/10 blur-[60px] sm:blur-[80px] rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-700" aria-hidden="true" />
-            <div className="relative glass-card rounded-2xl overflow-hidden border-white/20 shadow-2xl">
-              <Image
-                alt="Merchant OS Interface — unified dashboard showing all 18 platform integrations"
-                className="w-full h-auto object-cover group-hover:scale-[1.02] transition-transform duration-500"
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuB-iMn3b7jsjxCUAJDr6OYu5-L4qk0HM1INKq2yKIrANoBbU4aTjSIqOdeSdea7MS6hSFt5MzKugqKhHkzfUzeDmf12Y7U3SKkUxFgrb0htOSg0qRNhT0z5MLBPX9jbUCw-xiaUJRWNkov0o_6O0PcxhNxOKEwpOhb--DGJDgDQ14pPpF6bjp6bGfvRTTPtRZZak8B24OWiu9dGhC4sbsz0jCTQYSgLZkVkJ1mTanRDnRQMA-jjfssa05VU-4Nd6HRZIcbDN-_HURI"
-                width={1200}
-                height={800}
-                loading="lazy"
-              />
-            </div>
-          </motion.div>
-
-          {/* Content */}
-          
-        </div>
-      </section>
-
       {/* ============================================
           6. COMPARISON SECTION
           ============================================ */}
-      <section className="pt-10 pb-4 sm:pt-24 sm:pb-8 md:pt-32 md:pb-10 max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
+      <section className="pt-16 pb-6 sm:pt-24 sm:pb-8 md:pt-32 md:pb-10 max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
         <div className="text-center mb-12 sm:mb-16 md:mb-20">
           <h2 className="font-montserrat font-extrabold text-white"
             style={{ fontSize: 'clamp(1.75rem, 4vw, 3rem)' }}
           >
-            Why Choose Us?
+            The OCTADECENT Advantage
           </h2>
         </div>
 
@@ -930,101 +1125,121 @@ export default function HomePage() {
         </div>
       </section>
 
-      
+      {/* ============================================
+          7. TESTIMONIALS SECTION
+          ============================================ */}
+      <section className="pt-6 pb-16 sm:pt-8 sm:pb-24 border-t border-white/5 bg-black/20 relative z-10">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
+          <div className="text-center mb-16">
+            <div className="inline-flex items-center px-4 py-1.5 rounded-full border border-[#ff5c00]/25 bg-[#ff5c00]/8 text-[#ff5c00] text-xs font-semibold uppercase tracking-widest font-inter mb-6">
+              Reviews & Social Proof
+            </div>
+            <h2 className="font-montserrat font-extrabold text-white"
+              style={{ fontSize: 'clamp(1.75rem, 4vw, 2.75rem)' }}>
+              Trusted by Merchants Worldwide
+            </h2>
+            <p className="font-inter text-[#9a9898] mt-4 max-w-2xl mx-auto leading-relaxed text-sm sm:text-base">
+              Discover how global companies, startup founders, and retail brands scale their commerce operations and custom AI pipelines using OCTADECENT.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {[
+              {
+                quote: "OCTADECENT transformed our e-commerce platform. Our checkout conversion rates increased by 42% in just two months of migrating to their Next.js commerce architecture.",
+                author: "Sarah Jenkins",
+                role: "VP of E-commerce",
+                company: "LuxeVibe Apparel",
+                stars: 5
+              },
+              {
+                quote: "Their hyperlocal logistics engine and automated order workflows saved us hundreds of hours. The custom AI forecasting has completely optimized our inventory rotation.",
+                author: "Rajesh Nair",
+                role: "Operations Director",
+                company: "QuickCart Grocery",
+                stars: 5
+              },
+              {
+                quote: "We partnered with OCTADECENT to implement neural agents for automated support. Customer satisfaction is up 30%, and overhead costs have reduced by nearly half.",
+                author: "Elena Rostova",
+                role: "Chief Technology Officer",
+                company: "NovaRetail Group",
+                stars: 5
+              }
+            ].map((t, idx) => (
+              <motion.div
+                key={t.author}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: idx * 0.1 }}
+                className="glass-card p-8 rounded-3xl border border-white/5 hover:border-primary/20 hover:shadow-[0_8px_30px_rgba(255,92,0,0.05)] transition-all duration-300 flex flex-col justify-between animate-float"
+                style={{ animationDelay: `${idx * 0.2}s` }}
+              >
+                <div>
+                  <div className="flex gap-1 mb-5">
+                    {Array.from({ length: t.stars }).map((_, i) => (
+                      <span key={i} className="text-[#ff5c00] text-lg">★</span>
+                    ))}
+                  </div>
+                  <blockquote className="font-inter text-sm text-[#bab8b7] leading-relaxed italic mb-6">
+                    "{t.quote}"
+                  </blockquote>
+                </div>
+                <div className="border-t border-white/5 pt-4">
+                  <cite className="not-italic block">
+                    <span className="font-montserrat font-bold text-white text-sm block">{t.author}</span>
+                    <span className="font-inter text-xs text-[#9a9898]">{t.role}, <span className="text-primary font-semibold">{t.company}</span></span>
+                  </cite>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
 
 
 
       {/* ============================================
           9. FINAL CTA
           ============================================ */}
-      <section className="pt-20 pb-20 sm:pt-28 sm:pb-28 md:pt-36 md:pb-36 relative text-center overflow-hidden z-10 border-t border-white/5"
-        style={{
-          background: 'linear-gradient(to top, rgba(5,8,22,0.98) 0%, rgba(5,8,22,0.85) 50%, rgba(5,8,22,0.98) 100%), url("/brain-cta.jpg") center bottom / cover no-repeat'
-        }}
-      >
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 relative z-10">
-          {/* Top Badge */}
-          <motion.div
-            initial={{ opacity: 0, y: 15 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-[#ff5c00]/30 bg-black/50 text-[#ff5c00] text-[10px] sm:text-xs font-bold uppercase tracking-widest font-montserrat mb-8"
-          >
-            <Rocket className="w-3.5 h-3.5 animate-pulse" />
-            Let's Build The Future
-          </motion.div>
-
-          {/* Heading */}
+      <section className="pt-8 pb-20 sm:pt-12 sm:pb-28 md:pt-16 md:pb-36 relative text-center bg-black/40 overflow-hidden z-10">
+        <div className="absolute inset-0 bg-primary/5 pointer-events-none" aria-hidden="true" />
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 relative z-10">
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="font-montserrat font-extrabold text-white leading-tight mb-4"
+            className="font-montserrat font-extrabold text-white mb-6 sm:mb-8 leading-tight"
             style={{ fontSize: 'clamp(2rem, 5vw, 3.75rem)' }}
           >
-            Ready To Build Your<br />
-            <span className="text-[#ff5c00] tracking-tight relative inline-block drop-shadow-[0_0_35px_rgba(255,92,0,0.5)]">Digital Empire?</span>
+            Ready To Build Your<br />Digital Empire?
           </motion.h2>
-
-          {/* Subtitle */}
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="font-inter text-sm sm:text-base md:text-[17px] text-[#bab8b7] mb-12 max-w-2xl mx-auto leading-relaxed"
+            className="font-inter text-sm sm:text-base md:text-lg text-[#bab8b7] mb-8 sm:mb-12 max-w-xl mx-auto"
           >
-            Join a powerful ecosystem of innovators, creators, and entrepreneurs scaling faster with <span className="text-[#ff5c00] font-bold">Octadecent</span>.
+            Join the network of thousands of high-performance merchants scaling on Octadecent.
           </motion.p>
-
-          {/* Features Horizontal Grid */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="grid grid-cols-2 md:grid-cols-5 gap-6 md:gap-0 max-w-5xl mx-auto mb-16 py-8 border-y border-white/10 items-center justify-center bg-black/10 backdrop-blur-sm rounded-3xl"
-          >
-            {[
-              { icon: TrendingUp, title: "Scalable", subtitle: "Solutions" },
-              { icon: ShieldCheck, title: "Secure &", subtitle: "Reliable" },
-              { icon: Rocket, title: "Performance", subtitle: "Driven" },
-              { icon: Users, title: "Expert", subtitle: "Support" },
-              { icon: Globe, title: "Global", subtitle: "Ecosystem" }
-            ].map((feat, idx) => {
-              const Icon = feat.icon;
-              return (
-                <div key={idx} className="flex flex-col items-center text-center px-4 md:border-r last:border-r-0 border-white/10">
-                  <div className="w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center mb-3 text-[#ff5c00] shadow-[0_4px_15px_rgba(255,92,0,0.15)]">
-                    <Icon className="w-5 h-5" />
-                  </div>
-                  <span className="text-xs sm:text-[13px] font-bold text-white leading-tight">{feat.title}</span>
-                  <span className="text-[10px] sm:text-[11px] text-[#9a9898] mt-0.5 leading-tight">{feat.subtitle}</span>
-                </div>
-              );
-            })}
-          </motion.div>
-
-          {/* Buttons Row */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6"
+            className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-6"
           >
             <Link
-              href="/services"
-              className="w-full sm:w-auto px-8 py-4 sm:py-5 bg-gradient-to-r from-[#ff5c00] to-[#e05200] hover:from-[#e05200] hover:to-[#ff5c00] text-white rounded-2xl font-inter font-bold orange-glow hover:scale-105 transition-all text-center flex items-center justify-center gap-3 cursor-pointer text-sm sm:text-base shadow-[0_4px_25px_rgba(255,107,0,0.4)]"
+              href="/contact"
+              className="w-full sm:w-auto px-8 sm:px-12 py-4 sm:py-5 bg-primary hover:bg-primary-dark text-white rounded-2xl font-inter font-bold orange-glow hover:scale-105 transition-all text-center cursor-pointer text-sm sm:text-base"
             >
-              <Rocket className="w-5 h-5 text-white" />
-              <span>Initialize Integration</span>
-              <ArrowRight className="w-4 h-4 ml-1" />
+              Initialize Integration
             </Link>
             <Link
               href="/book-consultation"
-              className="w-full sm:w-auto px-8 py-4 sm:py-5 border border-white/10 bg-[#0a0d1a]/80 backdrop-blur-md hover:bg-[#0a0d1a] hover:border-white/20 text-white rounded-2xl font-inter font-bold hover:scale-105 transition-all text-center flex items-center justify-center gap-3 cursor-pointer text-sm sm:text-base shadow-[0_8px_32px_rgba(0,0,0,0.4)]"
+              className="w-full sm:w-auto px-8 sm:px-12 py-4 sm:py-5 border border-white/20 bg-white/5 backdrop-blur-md rounded-2xl font-inter font-bold hover:bg-white/10 transition-all text-center cursor-pointer text-sm sm:text-base"
             >
-              <Calendar className="w-5 h-5 text-[#ff5c00]" />
-              <span>Book Free Consultation</span>
-              <ArrowRight className="w-4 h-4 ml-1" />
+              Book Free Consultation
             </Link>
           </motion.div>
         </div>

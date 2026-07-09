@@ -145,13 +145,10 @@ export default function DigitalMarketingPage() {
             transition={{ duration: 0.8, ease: 'easeOut', delay: 0.15 }}
             className="lg:col-span-5 relative w-full aspect-[4/3] sm:aspect-square max-w-[500px] mx-auto rounded-3xl overflow-hidden border border-white/10 shadow-[0_0_50px_rgba(255,92,0,0.15)] group"
           >
-            <Image
+            <img
               src="/digital_marketing_hero.jpg"
               alt="Digital Marketing & Brand Growth"
               className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-              width={600}
-              height={600}
-              priority
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent pointer-events-none" />
           </motion.div>
