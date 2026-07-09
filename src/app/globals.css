@@ -1,0 +1,302 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #ff5c00;
+  --color-primary-dark: #cc4a00;
+  --color-secondary: #ff7b26;
+  --color-background-dark: #050505;
+  --color-surface: #111111;
+  --color-card: #151515;
+  --color-muted: #b5b5b5;
+  --color-accent-glow: rgba(255, 92, 0, 0.35);
+
+  --font-montserrat: var(--font-montserrat), sans-serif;
+  --font-inter: var(--font-inter), sans-serif;
+
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-pulse-slow: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  --animate-marquee: marquee 30s linear infinite;
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+  }
+  @keyframes marquee {
+    0% { transform: translateX(0%); }
+    100% { transform: translateX(-50%); }
+  }
+}
+
+:root {
+  --background: #050505;
+  --foreground: #ffffff;
+  --font-inter: 'Inter', sans-serif;
+  --font-montserrat: 'Montserrat', sans-serif;
+}
+
+/* =========================================
+   GLOBAL RESPONSIVE FOUNDATION
+   ========================================= */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+}
+
+/* Global image responsiveness */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Fluid typography with clamp() */
+h1 {
+  font-size: clamp(1.75rem, 4.5vw, 4rem);
+  line-height: 1.1;
+}
+
+h2 {
+  font-size: clamp(1.25rem, 3vw, 2.75rem);
+  line-height: 1.15;
+}
+
+h3 {
+  font-size: clamp(0.95rem, 2vw, 1.5rem);
+  line-height: 1.25;
+}
+
+h4 {
+  font-size: clamp(0.875rem, 1.5vw, 1.25rem);
+}
+
+p {
+  font-size: clamp(0.8rem, 1.2vw, 0.95rem);
+}
+
+/* Touch-friendly buttons */
+button, a[role="button"], .btn {
+  min-height: 44px;
+  min-width: 44px;
+}
+
+/* Forms responsive */
+input, textarea, select {
+  max-width: 100%;
+}
+
+/* =========================================
+   LENIS SMOOTH SCROLLING
+   ========================================= */
+
+html.lenis, html.lenis body {
+  height: auto;
+}
+
+.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis-scrolling iframe {
+  pointer-events: none;
+}
+
+/* =========================================
+   GLASSMORPHISM STYLES
+   ========================================= */
+
+.glass-card {
+  background: rgba(21, 21, 21, 0.7);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 92, 0, 0.08);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.8);
+}
+
+.glass-nav {
+  background: rgba(5, 5, 5, 0.8);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(255, 92, 0, 0.1);
+}
+
+/* =========================================
+   ACCENT GLOW EFFECTS
+   ========================================= */
+
+.orange-glow {
+  box-shadow: 0 0 30px rgba(255, 92, 0, 0.2);
+}
+
+.orange-glow-hover:hover {
+  box-shadow: 0 0 40px rgba(255, 92, 0, 0.4);
+}
+
+/* =========================================
+   BACKGROUND PATTERNS
+   ========================================= */
+
+.hero-grid {
+  background-image: 
+    linear-gradient(to right, rgba(255, 92, 0, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 92, 0, 0.03) 1px, transparent 1px);
+  background-size: 50px 50px;
+  mask-image: radial-gradient(ellipse at center, black, transparent 75%);
+}
+
+/* =========================================
+   GRADIENT UTILITIES
+   ========================================= */
+
+.gradient-text {
+  background: linear-gradient(135deg, #ffffff 0%, #ffb59a 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gradient-text-orange {
+  background: linear-gradient(135deg, #ff7b26 0%, #ff5c00 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* =========================================
+   SCROLLBAR UTILITIES
+   ========================================= */
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* =========================================
+   CONTAINER RESPONSIVE UTILITY
+   ========================================= */
+
+.container-responsive {
+  width: 100%;
+  max-width: 80rem; /* 1280px */
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: clamp(1rem, 4vw, 1.5rem);
+  padding-right: clamp(1rem, 4vw, 1.5rem);
+}
+
+/* =========================================
+   RESPONSIVE SECTION PADDING
+   ========================================= */
+
+.section-padding {
+  padding-top: clamp(3rem, 8vw, 8rem);
+  padding-bottom: clamp(3rem, 8vw, 8rem);
+}
+
+/* =========================================
+   MOBILE NAVIGATION OVERLAY FIX
+   ========================================= */
+
+.mobile-nav-open {
+  overflow: hidden;
+}
+
+/* =========================================
+   PERFORMANCE - REDUCED MOTION
+   ========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .animate-float {
+    animation: none !important;
+  }
+}
+
+/* =========================================
+   MOBILE-SPECIFIC FIXES
+   ========================================= */
+
+@media (max-width: 480px) {
+  /* Prevent oversized blobs from causing overflow */
+  .hero-blob {
+    display: none;
+  }
+
+  /* Tighter section spacing on small mobile */
+  .section-padding {
+    padding-top: clamp(2rem, 6vw, 3rem);
+    padding-bottom: clamp(2rem, 6vw, 3rem);
+  }
+
+  /* Ensure hero card doesn't overflow on very small screens */
+  .hero-card {
+    border-radius: 1.5rem;
+    margin: 0 0.75rem;
+  }
+
+  /* Floating WhatsApp button sizing on mobile */
+  .whatsapp-float {
+    width: 52px;
+    height: 52px;
+    bottom: 1.25rem;
+    right: 1.25rem;
+  }
+}
+
+/* =========================================
+   TABLET ADJUSTMENTS (768px - 1023px)
+   ========================================= */
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .hero-card {
+    border-radius: 2.5rem;
+  }
+}
+
+/* =========================================
+   FOCUS STATES FOR ACCESSIBILITY
+   ========================================= */
+
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid #ff5c00;
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* =========================================
+   PRINT STYLES
+   ========================================= */
+
+@media print {
+  .glass-nav,
+  .whatsapp-float,
+  nav {
+    display: none !important;
+  }
+}
