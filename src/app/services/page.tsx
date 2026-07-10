@@ -275,7 +275,7 @@ export default function ServicesPage() {
             className="lg:col-span-5 relative w-full aspect-square max-w-[480px] mx-auto flex items-center justify-center pt-8 lg:pt-0"
           >
             <img
-              src="/se.png"
+              src="/sr.png"
               alt="OCTADECENT services overview"
               className="w-full h-full object-contain animate-float"
             />
