@@ -32,13 +32,7 @@ interface DetailedService {
 export default function ServicesPage() {
   const [activeFaq, setActiveFaq] = useState<number | null>(null);
 
-  const stats = [
-    { label: 'Business Ventures', val: '18+', icon: Building2 },
-    { label: 'Core Service Categories', val: '10+', icon: Layers },
-    { label: 'Solutions Delivered', val: '100+', icon: Award },
-    { label: 'Industries Served', val: '20+', icon: Target },
-    { label: 'Business Ecosystem', val: 'End-to-End', icon: ShieldCheck }
-  ];
+  
 
   const whyChooseUs = [
     { title: 'Business First', desc: 'Every solution is aligned with measurable business goals.', icon: Target },
@@ -267,18 +261,45 @@ export default function ServicesPage() {
             </div>
           </motion.div>
 
-          {/* Right Column: Services Overview Image */}
+          {/* Right Rotating Graphic */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
+            initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, ease: 'easeOut', delay: 0.15 }}
-            className="lg:col-span-5 relative w-full aspect-square max-w-[480px] mx-auto flex items-center justify-center pt-8 lg:pt-0"
+            transition={{ duration: 0.8 }}
+            className="lg:col-span-5 relative flex items-center justify-center min-h-[360px] sm:min-h-[420px]"
           >
-            <img
-              src="/sr.png"
-              alt="OCTADECENT services overview"
-              className="w-full h-full object-contain animate-float"
-            />
+            {/* Outer Rings */}
+            <div className="absolute w-[280px] sm:w-[340px] h-[280px] sm:h-[340px] border border-[#ff5c00]/10 rounded-full animate-[spin_20s_linear_infinite]" />
+            <div className="absolute w-[220px] sm:w-[270px] h-[220px] sm:h-[270px] border border-dashed border-[#ff5c00]/20 rounded-full animate-[spin_15s_linear_infinite_reverse]" />
+
+            {/* Central Octagon Button Area */}
+            <div className="relative w-36 h-36 bg-gradient-to-tr from-[#ff5c00]/30 to-[#ff5c00]/5 border border-[#ff5c00]/35 rounded-[2rem] flex items-center justify-center z-10 shadow-[0_0_50px_rgba(255,92,0,0.25)]">
+              <span className="font-montserrat font-extrabold text-5xl text-[#ff5c00]">O</span>
+            </div>
+
+            {/* Orbiting Icons */}
+            {[
+              { icon: Truck, angle: 0 },
+              { icon: ShoppingCart, angle: 60 },
+              { icon: TrendingUp, angle: 120 },
+              { icon: Globe, angle: 180 },
+              { icon: Cpu, angle: 240 },
+              { icon: Users, angle: 300 }
+            ].map((node, idx) => {
+              const Icon = node.icon;
+              const rad = (node.angle * Math.PI) / 180;
+              const x = Math.cos(rad) * 130;
+              const y = Math.sin(rad) * 130;
+              return (
+                <div 
+                  key={idx}
+                  className="absolute w-10 h-10 rounded-full bg-[#111] border border-[#ff5c00]/40 flex items-center justify-center text-[#ff5c00] shadow-md z-20"
+                  style={{ transform: `translate(${x}px, ${y}px)` }}
+                >
+                  <Icon className="w-5 h-5" />
+                </div>
+              );
+            })}
           </motion.div>
         </div>
 
@@ -386,21 +407,7 @@ export default function ServicesPage() {
             </div>
           </motion.div>
 
-          <motion.div 
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            className="lg:col-span-5 relative flex items-center justify-center min-h-[300px]"
-          >
-            <div className="w-full aspect-[4/3] relative rounded-3xl overflow-hidden border border-white/10 shadow-2xl bg-white/5 flex items-center justify-center">
-              <Image 
-                src="/sr.png" 
-                alt="OCTADECENT ecosystem team working" 
-                fill 
-                className="object-cover"
-              />
-            </div>
-          </motion.div>
+          
         </div>
       </section>
 
