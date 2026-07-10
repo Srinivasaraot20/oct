@@ -591,9 +591,9 @@ export default function HomePage() {
                     <div className="flex flex-col sm:flex-row items-center sm:items-start gap-5 text-center sm:text-left">
                       <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-full p-[2px] bg-gradient-to-tr from-[#ff5c00]/50 to-[#ff5c00]/20 flex-shrink-0">
                         <div className="w-full h-full bg-[#050816] rounded-full overflow-hidden flex items-center justify-center">
-                          <Image src={partner.logo} alt={`${partner.name} partner logo`} className={`w-full h-full object-contain transition-transform duration-300 ${
-                            ['Octasverse', 'Thriftora'].includes(partner.name)
-                              ? 'scale-[1.35]'
+                          <Image src={partner.logo} alt={`${partner.name} partner logo`} className={`w-full h-full object-cover transition-transform duration-300 ${
+                            ['Octasverse', 'Thriftora', 'InfinityIdeasDCT', 'RudraCollections'].includes(partner.name)
+                              ? 'scale-[1.02]'
                               : ['Vyomora', 'DotFeelz', 'RevertedAI'].includes(partner.name)
                               ? 'scale-[1.15]'
                               : 'scale-90'
