@@ -353,7 +353,7 @@ const partnersData: PartnerItem[] = [
     ]
   },
   {
-  logo: '/th.jpg',
+  logo: '/th.jpeg',
   name: 'Thriftora',
   tagline: 'Every Item Deserves a Second Chance',
   shortSummary:
