@@ -63,9 +63,9 @@ export default function PartnerCard({
               <Image
                 src={logo}
                 alt={`${name} partner logo — OCTADECENT ecosystem`}
-                className={`w-full h-full object-contain transition-transform duration-500 bg-transparent ${
-                  ['Octasverse', 'Thriftora'].includes(name)
-                    ? 'scale-[1.35]'
+                className={`w-full h-full object-cover transition-transform duration-500 bg-transparent ${
+                  ['Octasverse', 'Thriftora', 'InfinityIdeasDCT', 'RudraCollections'].includes(name)
+                    ? 'scale-[1.02]'
                     : ['Vyomora', 'DotFeelz', 'RevertedAI'].includes(name)
                     ? 'scale-[1.15]'
                     : 'scale-90'
