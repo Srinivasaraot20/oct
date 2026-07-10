@@ -384,12 +384,12 @@ export default function ServicesPage() {
 
       {/* ─── 3. About Services Section (Dark Background) ───────────── */}
       <section className="bg-[#050505] text-white py-16 sm:py-24 relative z-10 border-t border-white/5">
-        <div className="max-w-7xl mx-auto px-6 sm:px-12 grid lg:grid-cols-12 gap-12 items-center">
+        <div className="max-w-5xl mx-auto px-6 sm:px-12 text-center">
           <motion.div 
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="lg:col-span-7 space-y-6"
+            className="space-y-6 flex flex-col items-center"
           >
             <span className="text-[#ff5c00] font-bold text-xs uppercase tracking-widest font-montserrat block">
               About Our Services
@@ -397,7 +397,7 @@ export default function ServicesPage() {
             <h2 className="font-montserrat font-extrabold text-3xl sm:text-4xl lg:text-5xl text-white leading-tight">
               Everything Your Business Needs Under <span className="text-[#ff5c00]">One Ecosystem</span>
             </h2>
-            <div className="space-y-4 text-gray-400 text-sm sm:text-base leading-relaxed font-inter">
+            <div className="space-y-4 text-gray-400 text-sm sm:text-base leading-relaxed font-inter max-w-3xl">
               <p>
                 Whether you're launching your first startup, modernizing an enterprise, building an eCommerce platform, or integrating AI into daily operations, OCTADECENT provides complete business solutions under one roof.
               </p>
