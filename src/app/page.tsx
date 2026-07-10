@@ -353,7 +353,7 @@ const partnersData: PartnerItem[] = [
     ]
   },
   {
-  logo: '/ths.png',
+  logo: '/th.jpg',
   name: 'Thriftora',
   tagline: 'Every Item Deserves a Second Chance',
   shortSummary:
@@ -503,13 +503,10 @@ export default function HomePage() {
 
             {/* Technology Wireframe Globe */}
             <div className="absolute inset-[10%] pointer-events-none select-none z-0">
-              <Image
+              <img
                 alt="OCTADECENT global technology representation"
                 className="w-full h-full object-contain animate-float"
                 src="/home.png"
-                width={400}
-                height={400}
-                priority
               />
             </div>
 
@@ -583,7 +580,7 @@ export default function HomePage() {
           </div>
           <h2 className="font-montserrat font-extrabold text-white"
             style={{ fontSize: 'clamp(1.75rem, 4vw, 2.75rem)' }}>
-            Partnered Companies
+            Partnered Businesses
           </h2>
           <p className="font-inter text-[#9a9898] mt-4 max-w-3xl mx-auto leading-relaxed text-sm sm:text-base">
             An ecosystem of innovative brands, technology, and strategic partnerships powering business growth.
@@ -837,38 +834,7 @@ export default function HomePage() {
 
       <EcosystemSection />
 
-      {/* ============================================
-          5. DASHBOARD PREVIEW — MERCHANT OS
-          ============================================ */}
-      <section className="py-10 sm:py-24 md:py-32 bg-black/40 border-y border-white/5 relative overflow-hidden z-10">
-        <div className="absolute top-1/2 left-1/4 w-[300px] sm:w-[500px] h-[300px] sm:h-[500px] bg-primary/5 blur-[100px] sm:blur-[150px] rounded-full pointer-events-none" aria-hidden="true" />
-
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 grid lg:grid-cols-2 gap-12 md:gap-16 lg:gap-24 items-center">
-          {/* Dashboard Image */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="relative group cursor-pointer order-2 lg:order-1"
-          >
-            <div className="absolute -inset-4 sm:-inset-8 bg-primary/10 blur-[60px] sm:blur-[80px] rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-700" aria-hidden="true" />
-            <div className="relative glass-card rounded-2xl overflow-hidden border-white/20 shadow-2xl">
-              <Image
-                alt="Merchant OS Interface — unified dashboard showing all 18 platform integrations"
-                className="w-full h-auto object-cover group-hover:scale-[1.02] transition-transform duration-500"
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuB-iMn3b7jsjxCUAJDr6OYu5-L4qk0HM1INKq2yKIrANoBbU4aTjSIqOdeSdea7MS6hSFt5MzKugqKhHkzfUzeDmf12Y7U3SKkUxFgrb0htOSg0qRNhT0z5MLBPX9jbUCw-xiaUJRWNkov0o_6O0PcxhNxOKEwpOhb--DGJDgDQ14pPpF6bjp6bGfvRTTPtRZZak8B24OWiu9dGhC4sbsz0jCTQYSgLZkVkJ1mTanRDnRQMA-jjfssa05VU-4Nd6HRZIcbDN-_HURI"
-                width={1200}
-                height={800}
-                loading="lazy"
-              />
-            </div>
-          </motion.div>
-
-          {/* Content */}
-          
-        </div>
-      </section>
+      
 
       {/* ============================================
           6. COMPARISON SECTION

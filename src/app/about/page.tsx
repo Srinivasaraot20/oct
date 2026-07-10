@@ -33,7 +33,7 @@ function FadeUp({ children, delay = 0, className = '' }: { children: React.React
 const services = [
   { Icon: ShoppingCart, title: 'E-Commerce', desc: 'Advanced storefronts and unified checkout experiences.' },
   { Icon: Code2, title: 'Web Dev', desc: 'High-performance digital architectures built for speed.' },
-  { Icon: Smartphone, title: 'Mobile App', desc: 'Native and cross-platform mobile commerce solutions.' },
+  
   { Icon: Bot, title: 'AI Automation', desc: 'Optimizing workflows through intelligent autonomous agents.' },
   { Icon: Users, title: 'CRM', desc: 'Deep-tier customer relationship and lifecycle management.' },
   { Icon: Database, title: 'Data Analytics', desc: 'Real-time business intelligence and predictive modeling.' },
@@ -122,7 +122,7 @@ export default function AboutPage() {
               <img
                 alt="OCTADECENT corporate company vision representation and software solutions overview"
                 className="w-full h-full object-cover opacity-80 group-hover:scale-[1.04] transition-transform duration-700"
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBk3ZdZUOl5ud_a8qpxgRGyDCW-ciSyYAEkmJYQMAmLMfp4GBheJTTu_z5CgMXoYlew-M4oKOefv7LeaLLP7-c8XikvoN04sf7i2Gdk7rv48oQJglP0pjQNbZfOS6LODlo5eTQuqBNHBUV2jc-XLGDNS6S80GYkrC3RUsOjQhQl3n_kfr8Q9P6D-cVEJt3z6OtCehk7Lsa3-HwVoIsyr9jxbVe1n6yBRo7Ct7ZSpDMpifj-O4EUnyNdAPlhNx0h88Vxn_p9TmGag30"
+                src="/about-building.jpg"
                 loading="lazy"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a]/50 to-transparent" aria-hidden="true" />
@@ -258,7 +258,7 @@ export default function AboutPage() {
 
                 <div className="space-y-3 mb-6">
                   <h3 className="font-montserrat font-bold text-white tracking-tight"
-                    style={{ fontSize: 'clamp(32px, 4vw, 40px)', lineHeight: '1.1' }}>
+                    style={{ fontSize: 'clamp(24px, 4.5vw, 40px)', lineHeight: '1.1' }}>
                     DEVUNURI SATHWIK
                   </h3>
                   <p className="font-inter font-semibold text-[#ff6b00]"

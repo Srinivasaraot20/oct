@@ -267,45 +267,18 @@ export default function ServicesPage() {
             </div>
           </motion.div>
 
-          {/* Right Rotating Graphic */}
+          {/* Right Column: Services Overview Image */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
+            initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8 }}
-            className="lg:col-span-5 relative flex items-center justify-center min-h-[360px] sm:min-h-[420px]"
+            transition={{ duration: 0.8, ease: 'easeOut', delay: 0.15 }}
+            className="lg:col-span-5 relative w-full aspect-square max-w-[480px] mx-auto flex items-center justify-center pt-8 lg:pt-0"
           >
-            {/* Outer Rings */}
-            <div className="absolute w-[280px] sm:w-[340px] h-[280px] sm:h-[340px] border border-[#ff5c00]/10 rounded-full animate-[spin_20s_linear_infinite]" />
-            <div className="absolute w-[220px] sm:w-[270px] h-[220px] sm:h-[270px] border border-dashed border-[#ff5c00]/20 rounded-full animate-[spin_15s_linear_infinite_reverse]" />
-
-            {/* Central Octagon Button Area */}
-            <div className="relative w-36 h-36 bg-gradient-to-tr from-[#ff5c00]/30 to-[#ff5c00]/5 border border-[#ff5c00]/35 rounded-[2rem] flex items-center justify-center z-10 shadow-[0_0_50px_rgba(255,92,0,0.25)]">
-              <span className="font-montserrat font-extrabold text-5xl text-[#ff5c00]">O</span>
-            </div>
-
-            {/* Orbiting Icons */}
-            {[
-              { icon: Truck, angle: 0 },
-              { icon: ShoppingCart, angle: 60 },
-              { icon: TrendingUp, angle: 120 },
-              { icon: Globe, angle: 180 },
-              { icon: Cpu, angle: 240 },
-              { icon: Users, angle: 300 }
-            ].map((node, idx) => {
-              const Icon = node.icon;
-              const rad = (node.angle * Math.PI) / 180;
-              const x = Math.cos(rad) * 130;
-              const y = Math.sin(rad) * 130;
-              return (
-                <div 
-                  key={idx}
-                  className="absolute w-10 h-10 rounded-full bg-[#111] border border-[#ff5c00]/40 flex items-center justify-center text-[#ff5c00] shadow-md z-20"
-                  style={{ transform: `translate(${x}px, ${y}px)` }}
-                >
-                  <Icon className="w-5 h-5" />
-                </div>
-              );
-            })}
+            <img
+              src="/se.png"
+              alt="OCTADECENT services overview"
+              className="w-full h-full object-contain animate-float"
+            />
           </motion.div>
         </div>
 
