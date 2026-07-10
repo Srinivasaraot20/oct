@@ -490,74 +490,19 @@ export default function HomePage() {
             </div>
           </motion.div>
 
-          {/* Right Column: Globe & Orbiting Divisions (40%) */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, ease: 'easeOut', delay: 0.15 }}
-            className="lg:col-span-5 relative w-full aspect-square max-w-[460px] mx-auto flex items-center justify-center pt-8 lg:pt-0"
-          >
-            {/* Background spinning circle lines */}
-            <div className="absolute inset-[15%] rounded-full border border-white/5 animate-[spin_60s_linear_infinite] pointer-events-none" />
-            <div className="absolute inset-[5%] rounded-full border border-[#ff5c00]/5 animate-[spin_40s_linear_infinite_reverse] pointer-events-none" />
-
-            {/* Technology Wireframe Globe */}
-            <div className="absolute inset-[10%] pointer-events-none select-none z-0">
-              <img
-                alt="OCTADECENT global technology representation"
-                className="w-full h-full object-contain animate-float"
-                src="/home.png"
-              />
-            </div>
-
-            {/* Central Octadecent Gold Insignia Logo */}
-            <div className="relative z-10 w-20 h-20 sm:w-24 sm:h-24 rounded-full p-[2px] bg-gradient-to-tr from-[#ff5c00] to-[#ffd700] shadow-[0_0_40px_rgba(255,92,0,0.35)] flex items-center justify-center">
-              <div className="w-full h-full bg-[#050816] rounded-full overflow-hidden flex items-center justify-center p-2.5">
-                <Image
-                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuBA-Ejw9GX39YVfLZY6_rzSHkCuoul10gUogdKujpPFixlahWW2jL_ZOXDnrjTLHlFgKHsIAJWc873fIWb8YEVelu-6TuRrfDQXvkehQd7SrbSkCQ5cXyyLw3GztkBPfDjZWw_o3wGMjeXpkZD9BqAZOHtqvC4qWlF37Y7LKJZjpwYKRD1mmcAiUFZnqJWqYiezpEpIqwt5pN6sgSB8KCV8mR284OINloeTyVCAAQI8EsppwvTSxYS_Wn6nRx_5CM0kKTN0UiX8i48"
-                  alt="OCTADECENT Gold Insignia Logo"
-                  className="w-full h-full object-contain"
-                  width={80}
-                  height={80}
-                />
-              </div>
-            </div>
-
-            {/* Orbiting Nodes mapping */}
-            {orbitNodes.map((node, index) => {
-              const Icon = node.icon;
-              return (
-                <div
-                  key={index}
-                  className={`absolute z-20 ${node.offset}`}
-                >
-                  <div className="flex items-center gap-2 group cursor-pointer">
-                    {node.alignLeft ? (
-                      <>
-                        <div className="hidden xs:flex flex-col text-right leading-none items-end">
-                          <span className="text-[8px] sm:text-[9px] font-montserrat font-bold text-white uppercase tracking-wider whitespace-nowrap">{node.line1}</span>
-                          <span className="text-[8px] sm:text-[9px] font-montserrat font-semibold text-[#bab8b7] uppercase tracking-wider whitespace-nowrap mt-0.5">{node.line2}</span>
-                        </div>
-                        <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-black/85 border border-[#ff5c00]/30 flex items-center justify-center text-[#ff5c00] flex-shrink-0 group-hover:bg-[#ff5c00] group-hover:text-white transition-all duration-300 shadow-[0_0_15px_rgba(255,92,0,0.15)] group-hover:shadow-[0_0_20px_rgba(255,92,0,0.35)] group-hover:scale-110">
-                          <Icon className="w-4 h-4 sm:w-4.5 sm:h-4.5" />
-                        </div>
-                      </>
-                    ) : (
-                      <>
-                        <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-black/85 border border-[#ff5c00]/30 flex items-center justify-center text-[#ff5c00] flex-shrink-0 group-hover:bg-[#ff5c00] group-hover:text-white transition-all duration-300 shadow-[0_0_15px_rgba(255,92,0,0.15)] group-hover:shadow-[0_0_20px_rgba(255,92,0,0.35)] group-hover:scale-110">
-                          <Icon className="w-4 h-4 sm:w-4.5 sm:h-4.5" />
-                        </div>
-                        <div className="hidden xs:flex flex-col text-left leading-none items-start">
-                          <span className="text-[8px] sm:text-[9px] font-montserrat font-bold text-white uppercase tracking-wider whitespace-nowrap">{node.line1}</span>
-                          <span className="text-[8px] sm:text-[9px] font-montserrat font-semibold text-[#bab8b7] uppercase tracking-wider whitespace-nowrap mt-0.5">{node.line2}</span>
-                        </div>
-                      </>
-                    )}
-                  </div>
-                </div>
-              );
-            })}
-          </motion.div>
+          {/* Right Column: Image Only */}
+<motion.div
+  initial={{ opacity: 0, scale: 0.95 }}
+  animate={{ opacity: 1, scale: 1 }}
+  transition={{ duration: 0.8, ease: "easeOut" }}
+  className="lg:col-span-5 flex items-center justify-center"
+>
+  <img
+    src="/home.png"
+    alt="OCTADECENT Business Ecosystem"
+    className="w-full max-w-[500px] h-auto object-contain"
+  />
+</motion.div>
 
         </div>
       </section>
